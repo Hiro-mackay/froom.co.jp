@@ -7,11 +7,11 @@
   },
   "extends": [
     "react-app",
-    "airbnb-base",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
+    "plugin:tailwind/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -36,10 +36,11 @@
     "import/no-useless-path-segments": [
       "error",
       {
-        "noUselessIndex": "true"
+        "noUselessIndex": true
       }
     ],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-var-requires": 0
   },
   "settings": {
     "import/resolver": {

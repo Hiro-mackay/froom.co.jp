@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Typescript Tailwind`,
@@ -13,12 +15,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    "gatsby-plugin-postcss",
+    'gatsby-plugin-postcss',
     {
-      resolve: "gatsby-plugin-purgecss",
+      resolve: 'gatsby-plugin-purgecss',
       options: {
         tailwind: true,
-        purgeOnly: ["src/css/index.css"],
+        purgeOnly: ['src/css/index.css'],
       },
     },
     `gatsby-plugin-typescript`,
@@ -37,11 +39,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-eslint",
+      resolve: 'gatsby-plugin-eslint',
       options: {
         test: /\.ts$|\.tsx$/,
         exclude: /(node_modules|.cache|public)/,
-        stages: ["develop", "build-javascript"],
+        stages: ['develop', 'build-javascript'],
         options: {
           emitWarning: true,
           failOnError: false,
@@ -52,4 +54,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
