@@ -4,21 +4,51 @@ type Props = {
   isMenuOpen: boolean;
 };
 
-export const Navigation: React.FC<Props> = ({ isMenuOpen }) => {
+export const navItems = [
+  {
+    link: '',
+    name: 'Home',
+  },
+  {
+    link: '#service',
+    name: 'Service',
+  },
+  {
+    link: '#member',
+    name: 'Member',
+  },
+  {
+    link: '#contact',
+    name: 'Contact',
+  },
+];
+
+export const HeaderNavigation: React.FC<Props> = ({ isMenuOpen }) => {
   return (
-    <nav className={`w-full ${isMenuOpen ? 'block' : 'hidden'} lg:block lg:flex lg:items-center lg:w-auto`}>
-      <a href="#responsive-header" className="block mt-4 mr-20 lg:inline-block lg:mt-0 hover:text-orange">
-        Home
-      </a>
-      <a href="#responsive-header" className="block mt-4 mr-20 lg:inline-block lg:mt-0 hover:text-orange">
-        Service
-      </a>
-      <a href="#responsive-header" className="block mt-4 mr-20 lg:inline-block lg:mt-0 hover:text-orange">
-        Memeber
-      </a>
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 hover:text-orange">
-        Contact
-      </a>
+    <nav
+      className={`w-full ${
+        isMenuOpen ? 'block' : 'hidden'
+      } bg-orange md:bg-white md:flex md:w-max md:space-x-10 lg:space-x-10 2xl:space-x-24`}
+    >
+      {navItems.map((item) => (
+        <a
+          href={item.link}
+          className="block px-8 py-4 text-sm border-b border-gray-200 lg:text-base md:p-1 text-gray-50 md:text-gray-800 md:inline-block transition duration-100 lg:hover:text-orange lg:hover:border-orange"
+          key={item.name}
+        >
+          {item.name}
+        </a>
+      ))}
     </nav>
   );
 };
+
+export const FooterNavigation: React.FC = () => (
+  <nav className={`w-full flex space-x-6 md:space-x-20`}>
+    {navItems.map((item) => (
+      <a href={item.link} className="inline-block  hover:text-orange" key={item.name}>
+        {item.name}
+      </a>
+    ))}
+  </nav>
+);

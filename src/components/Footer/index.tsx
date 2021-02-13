@@ -1,12 +1,14 @@
 import React from 'react';
-import { Navigation } from '../Navigation';
+import { FooterNavigation } from '../Navigation';
 
 export const Footer: React.FC = () => {
   return (
-    <div className="pb-8 bg-white">
-      <div className="container flex justify-between mx-auto">
-        <Navigation isMenuOpen={true} />
-        <div>© 2021 Froom, Inc. Make Learn Interesting.</div>
+    <div className="bg-white">
+      <div className="container flex flex-wrap justify-between px-4 pb-2 mx-auto md:px-10 box-border">
+        <div className="pb-10 lg:max-w-md">
+          <FooterNavigation />
+        </div>
+        <div className=" text-sm">© 2021 Froom, Inc. Make Learn Interesting.</div>
       </div>
     </div>
   );
