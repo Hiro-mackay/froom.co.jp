@@ -1,44 +1,12 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Footer } from '../components/Footer';
 import { Form } from '../components/Form';
 import { Head } from '../components/Head';
 import { Header } from '../components/Header';
-import Img from 'gatsby-image';
 import CoreMemberPhotos from '../images/core-member-photos.jpg';
 import ProductMockImage from '../images/product-mock-image.png';
 
 const Index: React.FC = () => {
-  const imageData = useStaticQuery(graphql`
-    query MyQuery {
-      allFile(filter: { extension: { regex: "/(jpg|png)/" }, relativeDirectory: { eq: "top" } }) {
-        edges {
-          node {
-            base
-            childImageSharp {
-              fluid {
-                aspectRatio
-                base64
-                sizes
-                src
-                srcSet
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const images = (filename: string) =>
-    imageData.allFile.edges
-      .filter(({ node }: { node: any }) => {
-        return node.base === filename;
-      })
-      .map(({ node }: { node: any }) => {
-        return <Img fixed={node.childImageSharp.fluid} />;
-      });
-
   return (
     <>
       <Head />

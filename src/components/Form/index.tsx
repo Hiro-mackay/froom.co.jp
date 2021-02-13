@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Form = () => {
+export const Form: React.FC = () => {
   return (
     <div className="w-full">
       <div className="w-full mb-6">
