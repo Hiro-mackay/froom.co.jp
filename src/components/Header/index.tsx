@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderNavigation } from '../Navigation';
 
-export const Header: React.FC = () => {
+export const Header: React.FC = React.memo(() => {
   const [isMenuOpen, setMenuOpen] = React.useState(false);
   return (
     <header className="fixed z-10 flex flex-wrap items-center justify-between w-full bg-white box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-4">
@@ -27,4 +27,4 @@ export const Header: React.FC = () => {
       <HeaderNavigation isMenuOpen={isMenuOpen} />
     </header>
   );
-};
+});

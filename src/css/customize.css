@@ -20,6 +20,8 @@ body {
 
 #TopLogoSVG path {
   stroke: #232323;
+  stroke-dasharray: 2000px;
+  stroke-dashoffset: 2000px;
   stroke-width: 2px;
   animation: svgLogoAnimation 2.2s ease-in 1s both;
 }

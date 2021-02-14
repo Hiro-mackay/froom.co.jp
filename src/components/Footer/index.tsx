@@ -1,7 +1,7 @@
 import React from 'react';
 import { FooterNavigation } from '../Navigation';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = React.memo(() => {
   return (
     <div className="bg-white">
       <div className="container flex flex-wrap justify-between px-4 pb-2 mx-auto md:px-10 box-border">
@@ -12,4 +12,4 @@ export const Footer: React.FC = () => {
       </div>
     </div>
   );
-};
+});

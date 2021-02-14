@@ -23,7 +23,7 @@ export const navItems = [
   },
 ];
 
-export const HeaderNavigation: React.FC<Props> = ({ isMenuOpen }) => {
+export const HeaderNavigation: React.FC<Props> = React.memo(({ isMenuOpen }) => {
   return (
     <nav
       className={`w-full ${
@@ -41,9 +41,9 @@ export const HeaderNavigation: React.FC<Props> = ({ isMenuOpen }) => {
       ))}
     </nav>
   );
-};
+});
 
-export const FooterNavigation: React.FC = () => (
+export const FooterNavigation: React.FC = React.memo(() => (
   <nav className={`w-full flex space-x-6 md:space-x-20`}>
     {navItems.map((item) => (
       <a href={item.link} className="inline-block  hover:text-orange" key={item.name}>
@@ -51,4 +51,4 @@ export const FooterNavigation: React.FC = () => (
       </a>
     ))}
   </nav>
-);
+));

@@ -66,7 +66,7 @@ const Index: React.FC = () => {
         {/* Mission & Vision */}
         <section className="container px-2 mx-auto text-center text-white ">
           <div className="pt-40 lg:py-60">
-            <h2 className="pb-10 text-2xl font-bold lg:pb-20 lg:text-5xl">Why Do</h2>
+            <h2 className="pb-10 text-2xl font-bold lg:pb-20 lg:text-5xl">Mission</h2>
             <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-7xl">Make Learn Interesting</h3>
             <p className="text-lg text-gray-100 lg:font-bold lg:text-2xl">Interestingな学びを実現する</p>
           </div>
