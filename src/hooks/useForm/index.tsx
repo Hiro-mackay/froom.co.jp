@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import axios, { AxiosError } from 'axios';
 import { SubmitHandler, FormHandles } from '@unform/core';
 
-const CORS_PROXY = 'https://froom-co-jp.vercel.app/';
+const CORS_PROXY = window.location.origin;
 
 axios.defaults.baseURL = CORS_PROXY;
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
