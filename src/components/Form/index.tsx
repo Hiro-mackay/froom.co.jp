@@ -24,6 +24,7 @@ export const Form: React.FC = React.memo(() => {
         );
       })}
       {formStatus.error && <p className="text-red">{formStatus.error.message}</p>}
+      {formStatus.status === 'success' && <p className="text-green">送信が完了しました!</p>}
       <div className="w-full mt-8 text-center">
         <button className="px-8 py-4 text-base leading-tight text-center text-white rounded transition duration-100 bg-orange-light px-17 md:px-20 md:py-4 hover:bg-orange-dark">
           送信する

@@ -38,14 +38,12 @@ export const useForm = (action: string): [React.FC<{ className: string }>, FormS
     axios
       .post(action, refData)
       .then((d) => {
-        console.log(d);
         setFormStatus({
           status: 'success',
           error: null,
         });
       })
       .catch((err: AxiosError) => {
-        console.error(err);
         setFormStatus({
           status: 'error',
           error: err,
