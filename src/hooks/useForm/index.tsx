@@ -8,15 +8,7 @@ export interface FormStatus {
   error: Error | null;
 }
 
-export const useForm = (action: string): [React.FC<{ className: string }>, FormStatus] => {
-  // axios initialization
-  if (typeof window !== `undefined`) {
-    const CORS_PROXY = window.location.origin;
-    axios.defaults.baseURL = CORS_PROXY;
-    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-  }
-
+export const useForm = (formActionURL: string): [React.FC<{ className: string }>, FormStatus] => {
   const [formStatus, setFormStatus] = useState<FormStatus>({
     status: 'standby',
     error: null,
@@ -36,9 +28,17 @@ export const useForm = (action: string): [React.FC<{ className: string }>, FormS
       status: 'submit',
       error: null,
     });
-    console.log('Submit');
+    console.log({
+      ...refData,
+      submit: 'Submit',
+    });
     axios
-      .post(action, refData)
+      .get(formActionURL, {
+        params: {
+          ...refData,
+          submit: 'Submit',
+        },
+      })
       .then((d) => {
         setFormStatus({
           status: 'success',
@@ -51,6 +51,20 @@ export const useForm = (action: string): [React.FC<{ className: string }>, FormS
           error: err,
         });
       });
+    // axios
+    //   .post(formActionURL, refData)
+    //   .then((d) => {
+    //     setFormStatus({
+    //       status: 'success',
+    //       error: null,
+    //     });
+    //   })
+    //   .catch((err: AxiosError) => {
+    //     setFormStatus({
+    //       status: 'error',
+    //       error: err,
+    //     });
+    //   });
   };
 
   return [UnForm, formStatus];

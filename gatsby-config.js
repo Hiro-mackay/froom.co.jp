@@ -23,9 +23,23 @@ module.exports = {
         purgeOnly: ['src/css/index.css'],
       },
     },
+    {
+      resolve: 'gatsby-source-notionso',
+      options: {
+        name: 'NotionNewsPosts',
+        rootPageUrl:
+          'https://www.notion.so/froominc/a87eec97742c4b7ead7a0fdfe5cc7da6?v=5e4e3ff68051431882fb880ffa1c98f0',
+        debug: false,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
     `gatsby-plugin-typescript`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

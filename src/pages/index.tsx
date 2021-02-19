@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '../components/Button';
 import { Footer } from '../components/Footer';
 import { Form } from '../components/Form';
 import { Head } from '../components/Head';
@@ -63,14 +64,13 @@ const Index: React.FC = () => {
             </svg>
           </div>
         </section>
-        {/* Mission & Vision */}
         <section className="container px-2 mx-auto text-center text-white ">
-          <div className="pt-40 lg:py-60">
-            <h2 className="pb-10 text-2xl font-bold lg:pb-20 lg:text-5xl">Mission</h2>
-            <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-7xl">Make Learn Interesting</h3>
-            <p className="text-lg text-gray-100 lg:font-bold lg:text-2xl">Interestingな学びを実現する</p>
+          <div className="my-60 lg:mt-80 lg:mb-96">
+            <h2 className="pb-10 text-2xl font-bold lg:pb-20 lg:text-6xl">Mission</h2>
+            <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-8xl">Make Learn Interesting</h3>
+            <p className="text-lg text-gray-100 lg:font-bold lg:text-3xl">Interestingな学びを実現する</p>
           </div>
-          <div className="pt-32 pb-40 lg:py-60">
+          {/* <div className="pt-32 pb-40 lg:py-60">
             <h2 className="pb-10 text-2xl font-bold lg:pb-20 lg:text-5xl">What Do</h2>
             <h3 className="pb-5 text-2xl font-extrabold lg:pb-10 lg:text-6xl">製造業の人材育成をDXする</h3>
             <p className="text-gray-100 lg:font-bold lg:text-2xl">
@@ -80,7 +80,7 @@ const Index: React.FC = () => {
               <br />
               ハイブリッド型の学びを支援します
             </p>
-          </div>
+          </div> */}
         </section>
         <section
           id="service"
@@ -97,11 +97,11 @@ const Index: React.FC = () => {
               <img className="w-full" src={ProductMockImage} alt="Froom編集画面" />
             </div>
             <div className="lg:text-2xl lg:leading-10">
-              <p className="pb-5 lg:pb-10">
-                Froomは、未経験者でも簡単に動画マニュアルを作成できる現場特化の教育プラットフォームです。
-              </p>
+              <p className="pb-5 lg:pb-10">Froomは、未経験者でも簡単に動画マニュアルを作成できるプロダクトです。</p>
+              <p>スマホ・タブレットから動画マニュアルを簡単作成。</p>
+              <p>教育担当の上司の新人教育に割く時間、さらには業務の機会損失を減らします。</p>
               <p>
-                タブレット一台で、教育コンテンツの作成・編集・公開まで一気通貫に行い、現場の社員は、スマホから簡単に動画を見ることができます。
+                また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。
               </p>
             </div>
           </div>
@@ -169,10 +169,22 @@ const Index: React.FC = () => {
           <div className="container px-10 py-20 mx-auto lg:pt-40 lg:pl-48 lg:pr-24 lg:pb-28">
             <h3 className="pb-16 text-4xl font-bold">Contact</h3>
             <div className="items-center grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div className="xl:pr-14">
-                <Form />
+              <div className="text-center w-max">
+                <p>お気軽に以下からお問い合わせください！！</p>
+                <p className="mt-5">
+                  <Button
+                    onClick={() => {
+                      if (typeof window !== `undefined`) {
+                        window.open('https://forms.gle/J86WPBHj2qLiUpeq9', '_blank');
+                      }
+                    }}
+                  >
+                    お問い合わせする
+                  </Button>
+                </p>
               </div>
-              <div className="pt-12 xl:pl-14 lg:pt-0">
+
+              <div className="pt-12 lg:pt-0">
                 <div className="flex items-center pb-10 lg:pb-14">
                   <div className="pr-8">
                     <svg className="w-6 h-6" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
