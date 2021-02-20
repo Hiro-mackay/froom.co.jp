@@ -1,11 +1,15 @@
-import React from 'react';
-import { HeaderNavigation } from '../Navigation';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { GlobalNavItem } from '../GlobalNavItem';
+import { GlobalNavigationItems } from '../../constants/GlobalNavigationItems';
 
-export const Header: React.FC = React.memo(() => {
-  const [isMenuOpen, setMenuOpen] = React.useState(false);
+export const Header = () => {
+  const { pathname } = useRouter();
+  const [isMenuOpen, setMenuOpen] = useState(true);
+
   return (
-    <header className="fixed z-10 flex flex-wrap items-center justify-between w-full bg-white box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-4">
-      <div className="flex flex-wrap items-center justify-between w-full px-6 py-3 md:w-max box-border">
+    <header className="fixed z-10 flex flex-wrap items-center justify-between w-full bg-white box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-3">
+      <div className="flex flex-wrap items-center justify-between w-full px-6 py-3 box-border">
         <div className="flex items-center flex-shrink-0 mr-6">
           <h1 className="text-xl font-semibold tracking-tight">Froom</h1>
         </div>
@@ -23,8 +27,21 @@ export const Header: React.FC = React.memo(() => {
             </svg>
           </button>
         </div>
+        <nav
+          className={`w-full ${
+            isMenuOpen ? 'block' : 'hidden'
+          } bg-orange md:bg-white md:flex md:w-max md:space-x-10 lg:space-x-10 2xl:space-x-24`}
+        >
+          {GlobalNavigationItems.map((item) => (
+            <span
+              className="block px-8 py-4 text-sm border-b border-gray-200 lg:text-base md:p-1 text-gray-50 md:text-gray-800 md:inline-block transition duration-100 lg:hover:text-orange lg:hover:border-orange"
+              key={item.label}
+            >
+              <GlobalNavItem pathname={pathname} {...item} />
+            </span>
+          ))}
+        </nav>
       </div>
-      <HeaderNavigation isMenuOpen={isMenuOpen} />
     </header>
   );
-});
+};

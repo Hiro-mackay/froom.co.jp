@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <title>My Blog</title>
+    <subtitle>Blog</subtitle>
+    <link href="/atom" rel="self" type="application/rss+xml"/>
+    <link href="/" />
+    <updated>2021-02-20T08:49:09.760Z</updated>
+    <id>My Notion Blog</id>
+    <entry>
+      <id>/blog/test-page</id>
+      <title>テストだよ</title>
+      <link href="/blog/test-page"/>
+      <updated>2021-02-19T15:00:00.983Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/test-page">Read more</a>
+          </p>
+        </div>
+      </content>
+      
+    </entry>
+    <entry>
+      <id>/blog/ha</id>
+      <title>は？</title>
+      <link href="/blog/ha"/>
+      <updated>1970-01-01T00:00:00.000Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/ha">Read more</a>
+          </p>
+        </div>
+      </content>
+      
+    </entry>
+  </feed>
