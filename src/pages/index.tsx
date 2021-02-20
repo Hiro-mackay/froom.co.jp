@@ -1,13 +1,15 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { Button } from '../components/Button';
 import { Footer } from '../components/Footer';
-import { Form } from '../components/Form';
 import { Head } from '../components/Head';
 import { Header } from '../components/Header';
+import { NewsPostList } from '../components/NewsPostList';
 import CoreMemberPhotos from '../images/core-member-photos.jpg';
 import ProductMockImage from '../images/product-mock-image.png';
 
-const Index: React.FC = () => {
+const Index: React.FC<{ data: any }> = ({ data }) => {
+  console.log(data);
   return (
     <>
       <Head />
@@ -153,7 +155,8 @@ const Index: React.FC = () => {
           <div className="px-8 pt-20 pb-16 bg-white shadow-xl lg:pt-32 lg:pb-24 lg:px-36">
             <h2 className="text-2xl font-bold lg:text-4xl lg:pb-14">News</h2>
 
-            <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
+            <NewsPostList />
+            {/* <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
               <article className="flex flex-wrap px-3 py-6 lg:text-xl">
                 <time className="w-full pb-2 lg:pr-10 lg:pb-0 lg:w-max">2020/01/27</time>
                 <h3 className="flex-grow  text-gray-700 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
@@ -162,7 +165,7 @@ const Index: React.FC = () => {
                 <time className="w-full pb-2 lg:pr-10 lg:pb-0 lg:w-max">2020/01/27</time>
                 <h3 className="flex-grow  text-gray-700 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
               </article>
-            </div>
+            </div> */}
           </div>
         </section>
         <section id="contact" className="w-full bg-white">
@@ -275,3 +278,18 @@ const Index: React.FC = () => {
 };
 
 export default Index;
+// export const query = graphql`
+//   query {
+//     allNotionPageNews(filter: { isDraft: { eq: false } }, sort: { fields: [indexPage], order: ASC }) {
+//       edges {
+//         node {
+//           title
+//           slug
+//           excerpt
+//           pageIcon
+//           createdAt
+//         }
+//       }
+//     }
+//   }
+// `;

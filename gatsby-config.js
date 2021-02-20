@@ -26,9 +26,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-notionso',
       options: {
-        name: 'NotionNewsPosts',
-        rootPageUrl:
-          'https://www.notion.so/froominc/a87eec97742c4b7ead7a0fdfe5cc7da6?v=5e4e3ff68051431882fb880ffa1c98f0',
+        name: 'News',
+        rootPageUrl: 'https://www.notion.so/bcf91afd866549ddb278f57c31950c67',
         debug: false,
       },
     },
