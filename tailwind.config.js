@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['public/**/*.html', 'src/**/*.tsx'],
+  purge: ['./src/**/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -9,6 +9,10 @@ module.exports = {
           DEFAULT: '#E2690D',
           dark: '#AD4E0A',
         },
+        froomYellow: {
+          DEFAULT: '#ffc843',
+        },
+        twitter: '#1D9BF0',
       },
     },
   },

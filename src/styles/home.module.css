@@ -1,0 +1,28 @@
+
+.logoAnimation path {
+    stroke: #232323;
+    stroke-dasharray: 2000px;
+    stroke-dashoffset: 2000px;
+    stroke-width: 2px;
+    animation: svgLogoAnimation 2.2s ease-in 1s both;
+  }
+  @keyframes svgLogoAnimation {
+    0% {
+      stroke-dasharray: 2000px;
+      stroke-dashoffset: 2000px;
+      fill: transparent;
+    }
+    40%{
+      stroke-dashoffset: 0;
+    }
+    65%{
+      stroke: #232323;
+  
+    }
+    80%{
+      fill: transparent;
+    }
+    100%{
+      stroke: transparent;
+    }
+  }

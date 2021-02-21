@@ -1,15 +1,19 @@
-import React from 'react';
-import { FooterNavigation } from '../Navigation';
-
-export const Footer: React.FC = React.memo(() => {
-  return (
-    <div className="bg-white">
-      <div className="container flex flex-wrap justify-between px-4 pb-2 mx-auto md:px-10 box-border">
-        <div className="pb-10 lg:max-w-md">
-          <FooterNavigation />
-        </div>
-        <div className=" text-sm">© 2021 Froom, Inc. Make Learn Interesting.</div>
+import ExtLink from '../ext-link';
+import { GlobalNavigationItems } from '../../constants/GlobalNavigationItems';
+import { GlobalNavItem } from '../GlobalNavItem';
+export default () => (
+  <footer>
+    <div className="container flex flex-wrap justify-between px-4 pb-2 mx-auto md:px-10 box-border">
+      <div className="pb-10 lg:max-w-md">
+        <nav className="w-full flex space-x-6 md:space-x-20">
+          {GlobalNavigationItems.map((item) => (
+            <span className="inline-block  hover:text-orange">
+              <GlobalNavItem pathname="" {...item} />
+            </span>
+          ))}
+        </nav>
       </div>
+      <div className=" text-sm">© 2021 Froom, Inc. Make Learn Interesting.</div>
     </div>
-  );
-});
+  </footer>
+);
