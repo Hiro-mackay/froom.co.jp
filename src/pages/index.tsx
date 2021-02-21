@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Button } from '../components/Button';
 import { Head } from '../components/Head';
 import TopStyles from '../styles/home.module.css';
