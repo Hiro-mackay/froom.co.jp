@@ -50,7 +50,7 @@ export default ({ posts = [], preview }) => {
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
-            {` `}Viewing in preview mode{' '}
+            Viewing in preview mode
             <Link href={`/api/clear-preview`}>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
@@ -58,7 +58,7 @@ export default ({ posts = [], preview }) => {
         </div>
       )}
       <MainVisual title="NEWS" />
-      <section className="container mx-auto py-24 px-44">
+      <section className="container mx-auto py-24 px-8 md:px-44">
         <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
           {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
           {posts.map((post) => (

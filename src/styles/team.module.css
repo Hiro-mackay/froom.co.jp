@@ -1,0 +1,11 @@
+.account:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+}
+
+.account:hover .twitter{
+    fill: #1D9BF0;
+}
+
+.account:hover .github{
+    color: #1D9BF0;
+}

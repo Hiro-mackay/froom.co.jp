@@ -49,49 +49,21 @@ export default ({ posts = [], preview }) => (
         <div className="w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3 inset-center">
           <svg className={`w-full ${TopStyles.logoAnimation}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 192">
             <defs>
-              <style>
-                {
-                  '.cls-1{fill:#ffc843;}.cls-2{fill:#00b3e3;}.cls-3{fill:#008c3c;}.cls-4{fill:#da3ab3;}.cls-5{fill:#00299f;}.cls-6{fill:#da2d2f;}'
-                }
-              </style>
+              <style>{'.cls-1{fill:#ffc843;}.cls-2{fill:#00b3e3;}.cls-3{fill:#008c3c;}.cls-4{fill:#da3ab3;}.cls-5{fill:#00299f;}.cls-6{fill:#da2d2f;}'}</style>
             </defs>
             <path className="cls-1" d="M16.66,61.34h0V180h29V106.23a49.31,49.31,0,0,1-29-44.89" />
-            <path
-              className="cls-2"
-              d="M45.68,61.34h0v44.89a49.06,49.06,0,0,0,20.21,4.34h53.66v-29H65.88a20.22,20.22,0,0,1-20.2-20.2"
-            />
-            <path
-              className="cls-3"
-              d="M119.55,12.11H65.88a49.23,49.23,0,0,0-20.2,94.12V61.34a20.22,20.22,0,0,1,20.2-20.2h53.67v-29"
-            />
+            <path className="cls-2" d="M45.68,61.34h0v44.89a49.06,49.06,0,0,0,20.21,4.34h53.66v-29H65.88a20.22,20.22,0,0,1-20.2-20.2" />
+            <path className="cls-3" d="M119.55,12.11H65.88a49.23,49.23,0,0,0-20.2,94.12V61.34a20.22,20.22,0,0,1,20.2-20.2h53.67v-29" />
             <path className="cls-4" d="M158.23,74.3h-29v39.31a39.37,39.37,0,0,1,29-38V74.3" />
-            <path
-              className="cls-2"
-              d="M168.52,74.3a39.77,39.77,0,0,0-10.29,1.35v38a10.29,10.29,0,0,1,17.57-7.27l20.52-20.53a39,39,0,0,0-27.8-11.51"
-            />
+            <path className="cls-2" d="M168.52,74.3a39.77,39.77,0,0,0-10.29,1.35v38a10.29,10.29,0,0,1,17.57-7.27l20.52-20.53a39,39,0,0,0-27.8-11.51" />
             <path className="cls-5" d="M158.23,75.65a39.37,39.37,0,0,0-29,38V180h29V75.65" />
-            <path
-              className="cls-1"
-              d="M249.22,74.31A52.81,52.81,0,1,0,302,127.12a52.81,52.81,0,0,0-52.82-52.81m0,76.59A23.79,23.79,0,1,1,273,127.11a23.77,23.77,0,0,1-23.79,23.79"
-            />
-            <path
-              className="cls-1"
-              d="M364.42,74.31a52.81,52.81,0,1,0,52.81,52.81,52.81,52.81,0,0,0-52.81-52.81m0,76.59a23.78,23.78,0,1,1,23.79-23.79,23.77,23.77,0,0,1-23.79,23.79"
-            />
+            <path className="cls-1" d="M249.22,74.31A52.81,52.81,0,1,0,302,127.12a52.81,52.81,0,0,0-52.82-52.81m0,76.59A23.79,23.79,0,1,1,273,127.11a23.77,23.77,0,0,1-23.79,23.79" />
+            <path className="cls-1" d="M364.42,74.31a52.81,52.81,0,1,0,52.81,52.81,52.81,52.81,0,0,0-52.81-52.81m0,76.59a23.78,23.78,0,1,1,23.79-23.79,23.77,23.77,0,0,1-23.79,23.79" />
             <path className="cls-2" d="M455.83,74.37h-29v46.34a46.48,46.48,0,0,1,29-43v-3.3" />
-            <path
-              className="cls-4"
-              d="M473.21,74.3a46.08,46.08,0,0,0-17.38,3.38v43a17.38,17.38,0,1,1,34.76,0v0A46.33,46.33,0,0,1,505.1,87,46.22,46.22,0,0,0,473.21,74.3"
-            />
+            <path className="cls-4" d="M473.21,74.3a46.08,46.08,0,0,0-17.38,3.38v43a17.38,17.38,0,1,1,34.76,0v0A46.33,46.33,0,0,1,505.1,87,46.22,46.22,0,0,0,473.21,74.3" />
             <path className="cls-5" d="M455.83,77.67a46.5,46.5,0,0,0-29,43V180h29V77.67" />
-            <path
-              className="cls-1"
-              d="M537,74.3A46.25,46.25,0,0,0,505.11,87a46.35,46.35,0,0,1,14.51,33.68h0a17.38,17.38,0,0,1,34.76,0V180h29V120.71A46.46,46.46,0,0,0,537,74.3"
-            />
-            <path
-              className="cls-6"
-              d="M505.1,87a46.35,46.35,0,0,0-14.51,33.68V180h29V120.71A46.3,46.3,0,0,0,505.1,87"
-            />
+            <path className="cls-1" d="M537,74.3A46.25,46.25,0,0,0,505.11,87a46.35,46.35,0,0,1,14.51,33.68h0a17.38,17.38,0,0,1,34.76,0V180h29V120.71A46.46,46.46,0,0,0,537,74.3" />
+            <path className="cls-6" d="M505.1,87a46.35,46.35,0,0,0-14.51,33.68V180h29V120.71A46.3,46.3,0,0,0,505.1,87" />
           </svg>
         </div>
       </section>
@@ -102,10 +74,7 @@ export default ({ posts = [], preview }) => (
           <p className="text-lg text-gray-100 lg:font-bold lg:text-3xl">Interestingな学びを実現する</p>
         </div>
       </section>
-      <section
-        id="service"
-        className="w-11/12 px-8 py-20 mb-1 ml-auto bg-white shadow-xl w-max-top-card lg:p-32"
-      >
+      <section id="service" className="w-11/12 px-8 py-20 mb-1 ml-auto bg-white shadow-xl w-max-top-card lg:p-32">
         <h2 className="pb-10 text-2xl lg:pb-16 lg:text-4xl tracking-wide">Service</h2>
         <h3 className="pb-12 text-4xl lg:pb-20 lg:text-5xl">
           現場教育を、
@@ -120,9 +89,7 @@ export default ({ posts = [], preview }) => (
             <p className="pb-5 lg:pb-10">Froomは、未経験者でも簡単に動画マニュアルを作成できるプロダクトです。</p>
             <p>スマホ・タブレットから動画マニュアルを簡単作成。</p>
             <p>教育担当の上司の新人教育に割く時間、さらには業務の機会損失を減らします。</p>
-            <p>
-              また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。
-            </p>
+            <p>また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。</p>
           </div>
         </div>
       </section>
@@ -140,11 +107,7 @@ export default ({ posts = [], preview }) => (
             Froomには"From Room"「今この部屋・この場所から始めていこう」という言葉が由来で、FromとRoomの2語をつなげた造語です。
           </p>
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-            <img
-              className="mt-auto mb-3 lg:mb-0 lg:order-last"
-              src="images/core-member-photos.jpg"
-              alt="Froom Member"
-            />
+            <img className="mt-auto mb-3 lg:mb-0 lg:order-last" src="images/core-member-photos.jpg" alt="Froom Member" />
             <p className="xl:col-span-2">
               私たちが目指すのは「Interestingな学びを実現すること」です。
               <br />
@@ -186,10 +149,10 @@ export default ({ posts = [], preview }) => (
         </div>
       </section>
       <section id="contact" className="w-full bg-white">
-        <div className="container px-10 py-20 mx-auto lg:pt-40 lg:pl-48 lg:pr-24 lg:pb-28">
+        <div className="container px-10 py-20 mx-auto lg:pt-40 lg:pb-28 xl:pl-48 xl:pr-24">
           <h3 className="pb-16 text-4xl tracking-wide">Contact</h3>
           <div className="items-center grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="text-center w-max">
+            <div className="text-center w-max m-auto lg:m-0">
               <p>お気軽に以下からお問い合わせください！</p>
               <p className="mt-5">
                 <Button
@@ -233,13 +196,7 @@ export default ({ posts = [], preview }) => (
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                    <path
-                      d="M27.5 7.5L15 16.25L2.5 7.5"
-                      stroke="#25282B"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M27.5 7.5L15 16.25L2.5 7.5" stroke="#25282B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div>
@@ -268,12 +225,7 @@ export default ({ posts = [], preview }) => (
                   </svg>
                 </div>
                 <div>
-                  <a
-                    className="text-sm lg:text-lg leading-9"
-                    href="https://goo.gl/maps/rVGtWztXw5MyrxhR8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="text-sm lg:text-lg leading-9" href="https://goo.gl/maps/rVGtWztXw5MyrxhR8" target="_blank" rel="noopener noreferrer">
                     〒450-6627
                     <br />
                     愛知県名古屋市中村区名駅1丁目1−3

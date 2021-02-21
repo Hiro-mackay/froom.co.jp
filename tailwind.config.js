@@ -12,6 +12,7 @@ module.exports = {
         froomYellow: {
           DEFAULT: '#ffc843',
         },
+        twitter: '#1D9BF0',
       },
     },
   },

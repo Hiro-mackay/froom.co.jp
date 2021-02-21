@@ -141,7 +141,7 @@ const RenderPost = ({ post, redirect, preview }) => {
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
-            {` `}Viewing in preview mode{' '}
+            Viewing in preview mode
             <Link href={`/api/clear-preview?slug=${post.Slug}`}>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
@@ -240,9 +240,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                   const baseBlockWidth = 768;
                   const roundFactor = Math.pow(10, 2);
                   // calculate percentages
-                  const width = block_width
-                    ? `${Math.round((block_width / baseBlockWidth) * 100 * roundFactor) / roundFactor}%`
-                    : block_height || '100%';
+                  const width = block_width ? `${Math.round((block_width / baseBlockWidth) * 100 * roundFactor) / roundFactor}%` : block_height || '100%';
 
                   const isImage = type === 'image';
                   const Comp = isImage ? 'img' : 'video';
@@ -267,14 +265,7 @@ const RenderPost = ({ post, redirect, preview }) => {
 
                   if (!isImage && !value.file_ids) {
                     // external resource use iframe
-                    child = (
-                      <iframe
-                        style={childStyle}
-                        src={display_source}
-                        key={!useWrapper ? id : undefined}
-                        className={!useWrapper ? 'asset-wrapper' : undefined}
-                      />
-                    );
+                    child = <iframe style={childStyle} src={display_source} key={!useWrapper ? id : undefined} className={!useWrapper ? 'asset-wrapper' : undefined} />;
                   } else {
                     // notion resource
                     child = (
@@ -326,15 +317,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                     if (language === 'LiveScript') {
                       // this requires the DOM for now
                       toRender.push(
-                        <ReactJSXParser
-                          key={id}
-                          jsx={content}
-                          components={components}
-                          componentsOnly={false}
-                          renderInpost={false}
-                          allowUnknownElements={true}
-                          blacklistedTags={['script', 'style']}
-                        />
+                        <ReactJSXParser key={id} jsx={content} components={components} componentsOnly={false} renderInpost={false} allowUnknownElements={true} blacklistedTags={['script', 'style']} />
                       );
                     } else {
                       toRender.push(

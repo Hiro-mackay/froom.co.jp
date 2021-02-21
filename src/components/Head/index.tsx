@@ -1,18 +1,25 @@
 import React from 'react';
 import Heads from 'next/head';
-const ogImageUrl = 'https://notion-blog.now.sh/og-image.png';
+import { useRouter } from 'next/router';
 
-
-export const Head = ({ titlePre = '' }) => {
+export const Head = ({ titlePre, description = '' }) => {
+  const router = useRouter();
   return (
     <Heads>
-      <title>{titlePre ? `${titlePre} |` : ''} My Notion Blog</title>
-      <meta name="description" content="An example Next.js site using Notion for the blog" />
-      <meta name="og:title" content="Froom Inc." />
-      <meta property="og:image" content={ogImageUrl} />
-      <meta name="twitter:site" content="Froom Inc." />
-      <meta name="twitter:card" content="" />
-      <meta name="twitter:image" content={ogImageUrl} />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>{titlePre === 'Home' ? 'Make Learn Interesting' : `${titlePre}`} | Froom Inc.</title>
+      <link rel="icon" href="/images/favicon.ico" />
+      <meta name="description" content={description || '株式会社Froomは、「Make Learn Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
+      <meta property="og:url" content={router.basePath} />
+      <meta property="og:title" content="Froom Inc. Make Learn Interesting" />
+      <meta property="og:description" content={description || '株式会社Froomは、「Make Learn Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
+      <meta property="og:image" content="/images/og-image.png" />
+      <meta name="twitter:site" content="Froom Inc. Make Learn Interesting" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="/images/og-image.png" />
+
+      <meta charSet="utf-8" />
+
       <script>
         {`(function(d) {
                 var config = {kitId: 'azl7goz',scriptTimeout: 3000,async: true},
