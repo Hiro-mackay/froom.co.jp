@@ -1,33 +1,47 @@
-.header {
-  display: block;
-  min-height: 64px;
-  padding: 2em 0;
-  text-align: center;
-  letter-spacing: -0.02em;
+.homeLogo{
+  transform: translateY(-40%);
+  opacity: 0;
+  animation: logoFadeinHome 1s ease-in 4s both;
 }
 
-.header ul {
-  list-style: none;
-  padding: 0;
+.logo path{
+  stroke: #232323;
+  stroke-dasharray: 2000px;
+  stroke-dashoffset: 2000px;
+  stroke-width: 2px;
 }
 
-.header ul li {
-  display: inline-block;
-  padding: 0 10px;
+.logo:hover path{  
+  animation: svgLogoAnimation 2.2s ease-in;
 }
 
-.header :global(a) {
-  color: var(--accents-3);
-  font-weight: 400;
+@keyframes svgLogoAnimation {
+  0% {
+    fill: transparent;
+  }
+  40%{
+    stroke-dashoffset: 0;
+  }
+  65%{
+    stroke: #232323;
+
+  }
+  80%{
+    fill: transparent;
+  }
+  100%{
+    stroke: transparent;
+  }
 }
 
-.header :global(a.active) {
-  color: #0070f3;
-  font-weight: 600;
-}
 
-@media (max-width: 600px) {
-  .header {
-    padding: .5em 0 2em;
+@keyframes logoFadeinHome {
+  0% {
+    transform: translateY(-40%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
   }
 }

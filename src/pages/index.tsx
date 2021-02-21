@@ -6,6 +6,7 @@ import getBlogIndex from '../lib/notion/getBlogIndex';
 import getNotionUsers from '../lib/notion/getNotionUsers';
 import blogStyles from '../styles/blog.module.css';
 import { ArticleListItem } from '../components/ArticleListItem';
+import FroomSVG from '../components/svgs/froom';
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex();
@@ -46,7 +47,7 @@ export default ({ posts = [], preview }) => (
     <div className="tracking-normal text-gray-800 bg-orange font-bold">
       <section className="relative w-screen h-screen bg-white">
         <div className="w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3 inset-center">
-          <svg className={`w-full ${TopStyles.logoAnimation}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 192">
+          {/* <svg className={`w-full ${TopStyles.logoAnimation}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 192">
             <defs>
               <style>{'.cls-1{fill:#ffc843;}.cls-2{fill:#00b3e3;}.cls-3{fill:#008c3c;}.cls-4{fill:#da3ab3;}.cls-5{fill:#00299f;}.cls-6{fill:#da2d2f;}'}</style>
             </defs>
@@ -63,7 +64,8 @@ export default ({ posts = [], preview }) => (
             <path className="cls-5" d="M455.83,77.67a46.5,46.5,0,0,0-29,43V180h29V77.67" />
             <path className="cls-1" d="M537,74.3A46.25,46.25,0,0,0,505.11,87a46.35,46.35,0,0,1,14.51,33.68h0a17.38,17.38,0,0,1,34.76,0V180h29V120.71A46.46,46.46,0,0,0,537,74.3" />
             <path className="cls-6" d="M505.1,87a46.35,46.35,0,0,0-14.51,33.68V180h29V120.71A46.3,46.3,0,0,0,505.1,87" />
-          </svg>
+          </svg> */}
+          <FroomSVG className={`w-full ${TopStyles.logoAnimation}`} />
         </div>
       </section>
       <section className="container px-2 mx-auto text-center text-white ">
