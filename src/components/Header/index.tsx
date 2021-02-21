@@ -2,6 +2,9 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { GlobalNavItem } from '../GlobalNavItem';
 import { GlobalNavigationItems } from '../../constants/GlobalNavigationItems';
+import Link from 'next/link';
+import FroomSVG from '../svgs/froom';
+import styles from '../../styles/header.module.css';
 
 export const Header = () => {
   const { pathname } = useRouter();
@@ -11,9 +14,12 @@ export const Header = () => {
     <header className="fixed z-10 flex flex-wrap items-center justify-between w-full bg-white box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-3">
       <div className="flex flex-wrap items-center justify-between w-full box-border">
         <div className="flex items-center flex-shrink-0 mr-6 pl-6 py-3">
-          <h1 className="text-xl font-semibold tracking-tight">Froom</h1>
+          <Link href="/">
+            <a>
+              <FroomSVG className={`w-20 ${styles.logo} ${pathname === '/' && styles.homeLogo}`} />
+            </a>
+          </Link>
         </div>
-
         <div className="block md:hidden pr-6">
           <button
             onClick={() => {
