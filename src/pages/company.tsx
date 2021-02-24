@@ -10,9 +10,8 @@ export default () => {
         <div className="pl-4">
           <h2 className="text-4xl lg:text-5xl pb-14 tracking-wider">About Us</h2>
           <p className="text-lg md:text-xl" style={{ lineHeight: 1.7 }}>
-            私たちが目指すのは「Interestingな学びを実現すること」です。 Interestingな学びとは、学ぶことそれ自体が面白く、自らの人生に好影響を与えるような 価値ある学びのことです。
-            人と人とが関わり合い、学び合う。 これが私たちが考える教育です。 教育活動を、より効果的に、効率的に進化させていくこと。 それはつまり、教育活動の課題を 解決するということ。
-            私たちFroomは、教育活動の課題を 解決することを使命とし、 Interestingな学びを実現することを私たちは目指していきます。
+            私たちが目指すのは「Interestingな学びを実現すること」です。 「Interestingな学び」とは、学ぶことそれ自体が面白く、また、自らに、そして周囲に好影響を与えるような価値ある学びのことです。人と人とが関わり合い、学び合う。これが私たちが考える教育活動です。 <br />
+            人は生きている限り学び続けます。その学びをもっと面白く。 私たちFroomは、「Interestingな学び」を実現していきます。
           </p>
         </div>
         <div className="pl-4 pt-32">
@@ -48,7 +47,7 @@ export default () => {
           </div>
         </div>
         <div className="pl-4 pt-32">
-          <h2 className="text-4xl lg:text-5xl pb-20 tracking-wider">Overview</h2>
+          <h2 className="text-4xl lg:text-5xl pb-20 tracking-wider">About</h2>
           <div>
             <table className="w-full text-sm md:text-lg leading-7 md:leading-9 border-collapse">
               <tbody>
@@ -81,7 +80,7 @@ export default () => {
                 </tr>
                 <tr>
                   <th className="w-20 md:w-36 md:pl-5 py-8 text-left border-t-2 border-b-2">事業内容</th>
-                  <td className="py-6 border-t-2 border-b-2">現場の人材育成をDX</td>
+                  <td className="py-6 border-t-2 border-b-2">人材育成DXシステムの開発・提供</td>
                 </tr>
               </tbody>
             </table>

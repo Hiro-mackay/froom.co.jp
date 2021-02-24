@@ -102,11 +102,7 @@ export default ({ posts = [], preview }) => (
           今作るために
         </h3>
         <div className="font-normal lg:font-bold leading-8 lg:text-2xl lg:leading-10">
-          <p className="pb-8">
-            「教育をより良いものにするための事業をやりたい」という思いで2020年2月に立ち上げたのが、株式会社Froomです。
-            <br />
-            Froomには"From Room"「今この部屋・この場所から始めていこう」という言葉が由来で、FromとRoomの2語をつなげた造語です。
-          </p>
+          <p className="pb-8">Froomには“From Room”「今この部屋・この場所から始めていこう」という言葉が由来で、FromとRoomの2語を組み合わせました。</p>
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
             <img className="mt-auto mb-3 lg:mb-0 lg:order-last" src="images/core-member-photos.jpg" alt="Froom Member" />
             <p className="xl:col-span-2">
@@ -115,23 +111,18 @@ export default ({ posts = [], preview }) => (
               Interestingな学びとは、
               <span className="inline-block">学ぶことそれ自体が面白く、</span>
               <br />
-              自らの人生に好影響を与えるような
+              また、自らに、そして周囲に好影響を与えるような
               <span className="inline-block">価値ある学びのことです。</span>
               <br />
               人と人とが関わり合い、学び合う。
-              <span className="inline-block">これが私たちが考える教育です。</span>
+              <span className="inline-block">これが私たちが考える教育活動です。</span>
               <br />
-              教育活動を、より効果的に、
-              <span className="inline-block">効率的に進化させていくこと。</span>
+              人は生きている限り学び続けます。
+              <span className="inline-block">その学びをもっと面白く。</span>
               <br />
-              それはつまり、教育活動の課題を
-              <span className="inline-block">解決するということ。</span>
-              <br />
-              私たちFroomは、教育活動の課題を
-              <span className="inline-block">解決することを使命とし、</span>
-              <br />
-              Interestingな学びを実現することを
-              <span className="inline-block">私たちは目指していきます。</span>
+              私たちFroomは、
+              <span className="inline-block">「Interestingな学び」</span>
+              を実現していきます。
             </p>
           </div>
         </div>
@@ -185,9 +176,10 @@ export default ({ posts = [], preview }) => (
                   <a className="pb-1 border-b-2 border-gray-300 lg:text-xl" href="tel:+052-485-8760">
                     052-485-8760
                   </a>
+                  <span className="text-sm text-gray-400 pt-2 blck">※名古屋大学オープンイノベーション拠点内受付</span>
                 </div>
               </div>
-              <div className="flex items-center pb-10 lg:pb-14">
+              {/* <div className="flex items-center pb-10 lg:pb-14">
                 <div className="pr-8">
                   <svg className="w-6 h-6" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -205,7 +197,7 @@ export default ({ posts = [], preview }) => (
                     info@froom.co.jp
                   </a>
                 </div>
-              </div>
+              </div> */}
               <div className="flex">
                 <div className="pt-2 pr-8">
                   <svg className="w-6 h-6" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
