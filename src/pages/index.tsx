@@ -1,4 +1,4 @@
-import { Button } from '../components/Button';
+import { Button, CVButton } from '../components/Button';
 import { Head } from '../components/Head';
 import TopStyles from '../styles/home.module.css';
 import { postIsPublished } from '../lib/blog-helpers';
@@ -76,6 +76,9 @@ const Page = ({ posts = [], preview }) => (
             <p>教育担当の上司の新人教育に割く時間、さらには業務の機会損失を減らします。</p>
             <p>また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。</p>
           </div>
+          <a href="/service">
+            <CVButton>詳しく見る</CVButton>
+          </a>
         </div>
       </section>
       <section id="member" className="w-11/12 px-8 py-20 bg-white shadow-xl w-max-top-card lg:p-32">
