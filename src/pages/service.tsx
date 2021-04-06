@@ -88,7 +88,7 @@ export default () => {
             <div className="w-36 h-36 lg:w-44 lg:h-44 bg-froomBlue rounded-full relative mx-auto">
               <FastTime className="w-16 h-16 lg:w-24 lg:h-24 absolute inset-center" style={{ fill: 'white' }} />
             </div>
-            <h3 className="pt-6">現場教育に時間をかけれない</h3>
+            <h3 className="pt-6">現場教育に時間をかけられない</h3>
           </div>
           <div>
             <div className="w-36 h-36 lg:w-44 lg:h-44 bg-froomBlue rounded-full relative mx-auto">
