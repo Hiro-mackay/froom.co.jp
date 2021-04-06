@@ -15,3 +15,35 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.inset-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.inset-center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.service-mv{
+    max-height: 780px
+}
+
+@media (min-width: 1024px){
+.service-mv-clip{
+    clip-path: polygon(0 0, 100% 0%, 50% 100%, 0 100%);
+}
+.service-mv-image, 
+.service-mv-copy{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.service-mv{
+    max-height: 900px
+}
+}

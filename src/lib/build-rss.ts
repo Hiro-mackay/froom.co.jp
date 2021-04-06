@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { textBlock } from './notion/renderers';
 import getBlogIndex from './notion/getBlogIndex';
 import getNotionUsers from './notion/getNotionUsers';
-import { postIsPublished, getArticleLink } from './blog-helpers';
+import { postIsPublished, getBlogLink } from './blog-helpers';
 
 // must use weird syntax to bypass auto replacing of NODE_ENV
 process.env['NODE' + '_ENV'] = 'production';
@@ -19,12 +19,7 @@ function mapToAuthor(author) {
 }
 
 function decode(string) {
-  return string
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
+  return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
 function mapToEntry(post) {
@@ -36,11 +31,7 @@ function mapToEntry(post) {
       <updated>${new Date(post.date).toJSON()}</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          ${renderToStaticMarkup(
-            post.preview
-              ? (post.preview || []).map((block, idx) => textBlock(block, false, post.title + idx))
-              : post.content
-          )}
+          ${renderToStaticMarkup(post.preview ? (post.preview || []).map((block, idx) => textBlock(block, false, post.title + idx)) : post.content)}
           <p class="more">
             <a href="${post.link}">Read more</a>
           </p>
@@ -90,7 +81,7 @@ async function main() {
 
   blogPosts.forEach((post) => {
     post.authors = post.authors.map((id) => users[id]);
-    post.link = getArticleLink(post.Slug);
+    post.link = getBlogLink(post.Slug);
     post.title = post.Page;
     post.date = post.Date;
   });

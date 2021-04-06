@@ -1,16 +1,19 @@
 import { Head } from '../components/Head';
 import { MainVisual } from '../components/MainVisual';
 import { TeamProfile } from '../components/TeamProfile';
+import { Corporate } from '../layouts/corporate';
 export default () => {
   return (
-    <>
+    <Corporate>
       <Head titlePre="Company" />
       <MainVisual title="COMPANY" />
       <section className="container mx-auto py-20 md:py-40 px-5 xl:px-44 font-bold">
         <div className="pl-4">
           <h2 className="text-4xl lg:text-5xl pb-14 tracking-wider">About Us</h2>
           <p className="text-lg md:text-xl" style={{ lineHeight: 1.7 }}>
-            私たちが目指すのは「Interestingな学びを実現すること」です。 「Interestingな学び」とは、学ぶことそれ自体が面白く、また、自らに、そして周囲に好影響を与えるような価値ある学びのことです。人と人とが関わり合い、学び合う。これが私たちが考える教育活動です。 <br />
+            私たちが目指すのは「Interestingな学びを実現すること」です。
+            「Interestingな学び」とは、学ぶことそれ自体が面白く、また、自らに、そして周囲に好影響を与えるような価値ある学びのことです。人と人とが関わり合い、学び合う。これが私たちが考える教育活動です。{' '}
+            <br />
             人は生きている限り学び続けます。その学びをもっと面白く。 私たちFroomは、「Interestingな学び」を実現していきます。
           </p>
         </div>
@@ -87,6 +90,6 @@ export default () => {
           </div>
         </div>
       </section>
-    </>
+    </Corporate>
   );
 };
