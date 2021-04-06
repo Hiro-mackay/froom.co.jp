@@ -7,6 +7,7 @@ import getNotionUsers from '../lib/notion/getNotionUsers';
 import blogStyles from '../styles/blog.module.css';
 import { ArticleListItem } from '../components/ArticleListItem';
 import FroomSVG from '../components/svgs/froom';
+import { Corporate } from '../layouts/corporate';
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex();
@@ -41,38 +42,21 @@ export async function getStaticProps({ preview }) {
     revalidate: 10,
   };
 }
-export default ({ posts = [], preview }) => (
-  <>
+
+const Page = ({ posts = [], preview }) => (
+  <Corporate>
     <Head titlePre="Home" />
     <div className="tracking-normal text-gray-800 bg-orange font-bold">
       <section className="relative w-screen h-screen bg-white">
         <div className="w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3 inset-center">
-          {/* <svg className={`w-full ${TopStyles.logoAnimation}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 192">
-            <defs>
-              <style>{'.cls-1{fill:#ffc843;}.cls-2{fill:#00b3e3;}.cls-3{fill:#008c3c;}.cls-4{fill:#da3ab3;}.cls-5{fill:#00299f;}.cls-6{fill:#da2d2f;}'}</style>
-            </defs>
-            <path className="cls-1" d="M16.66,61.34h0V180h29V106.23a49.31,49.31,0,0,1-29-44.89" />
-            <path className="cls-2" d="M45.68,61.34h0v44.89a49.06,49.06,0,0,0,20.21,4.34h53.66v-29H65.88a20.22,20.22,0,0,1-20.2-20.2" />
-            <path className="cls-3" d="M119.55,12.11H65.88a49.23,49.23,0,0,0-20.2,94.12V61.34a20.22,20.22,0,0,1,20.2-20.2h53.67v-29" />
-            <path className="cls-4" d="M158.23,74.3h-29v39.31a39.37,39.37,0,0,1,29-38V74.3" />
-            <path className="cls-2" d="M168.52,74.3a39.77,39.77,0,0,0-10.29,1.35v38a10.29,10.29,0,0,1,17.57-7.27l20.52-20.53a39,39,0,0,0-27.8-11.51" />
-            <path className="cls-5" d="M158.23,75.65a39.37,39.37,0,0,0-29,38V180h29V75.65" />
-            <path className="cls-1" d="M249.22,74.31A52.81,52.81,0,1,0,302,127.12a52.81,52.81,0,0,0-52.82-52.81m0,76.59A23.79,23.79,0,1,1,273,127.11a23.77,23.77,0,0,1-23.79,23.79" />
-            <path className="cls-1" d="M364.42,74.31a52.81,52.81,0,1,0,52.81,52.81,52.81,52.81,0,0,0-52.81-52.81m0,76.59a23.78,23.78,0,1,1,23.79-23.79,23.77,23.77,0,0,1-23.79,23.79" />
-            <path className="cls-2" d="M455.83,74.37h-29v46.34a46.48,46.48,0,0,1,29-43v-3.3" />
-            <path className="cls-4" d="M473.21,74.3a46.08,46.08,0,0,0-17.38,3.38v43a17.38,17.38,0,1,1,34.76,0v0A46.33,46.33,0,0,1,505.1,87,46.22,46.22,0,0,0,473.21,74.3" />
-            <path className="cls-5" d="M455.83,77.67a46.5,46.5,0,0,0-29,43V180h29V77.67" />
-            <path className="cls-1" d="M537,74.3A46.25,46.25,0,0,0,505.11,87a46.35,46.35,0,0,1,14.51,33.68h0a17.38,17.38,0,0,1,34.76,0V180h29V120.71A46.46,46.46,0,0,0,537,74.3" />
-            <path className="cls-6" d="M505.1,87a46.35,46.35,0,0,0-14.51,33.68V180h29V120.71A46.3,46.3,0,0,0,505.1,87" />
-          </svg> */}
           <FroomSVG className={`w-full ${TopStyles.logoAnimation}`} />
         </div>
       </section>
       <section className="container px-2 mx-auto text-center text-white ">
         <div className="my-60 lg:mt-80 lg:mb-96">
           <h2 className="pb-10 text-2xl lg:pb-20 lg:text-6xl tracking-wide">Mission</h2>
-          <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-8xl tracking-wide">Make Learn Interesting</h3>
-          <p className="text-lg text-gray-100 lg:font-bold lg:text-3xl">Interestingな学びを実現する</p>
+          <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-8xl tracking-wide">Make Interesting</h3>
+          <p className="text-lg text-gray-100 lg:font-bold lg:text-3xl">働くことを、学ぶことをもっと楽しく、面白く！</p>
         </div>
       </section>
       <section id="service" className="w-11/12 px-8 py-20 mb-1 ml-auto bg-white shadow-xl w-max-top-card lg:p-32">
@@ -176,7 +160,7 @@ export default ({ posts = [], preview }) => (
                   <a className="pb-1 border-b-2 border-gray-300 lg:text-xl" href="tel:+052-485-8760">
                     052-485-8760
                   </a>
-                  <span className="text-sm text-gray-400 pt-2 blck">※名古屋大学オープンイノベーション拠点内受付</span>
+                  <span className="text-sm text-gray-400 pt-2 block">※名古屋大学オープンイノベーション拠点内受付</span>
                 </div>
               </div>
               {/* <div className="flex items-center pb-10 lg:pb-14">
@@ -234,5 +218,6 @@ export default ({ posts = [], preview }) => (
         </div>
       </section>
     </div>
-  </>
+  </Corporate>
 );
+export default Page;

@@ -12,6 +12,12 @@ module.exports = {
         froomYellow: {
           DEFAULT: '#ffc843',
         },
+        froomBlue: {
+          DEFAULT: '#3498DB',
+        },
+        froomNavy: {
+          DEFAULT: '#183E7C',
+        },
         twitter: '#1D9BF0',
       },
     },

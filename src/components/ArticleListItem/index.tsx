@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getArticleLink, getDateStr, postIsPublished } from '../../lib/blog-helpers';
+import { getBlogLink, getDateStr, postIsPublished } from '../../lib/blog-helpers';
 import blogStyles from '../../styles/blog.module.css';
 
 export interface ArticleItem {
@@ -33,7 +33,7 @@ export const ArticleListItem: React.FC<ArticleItem & ArticleProps> = ({ Page, Pu
     <article className="font-bold">
       <p className={`pb-2 text-gray-500 ${ArticleTimeSize[titleSize]}`}>{getDateStr(Date)}</p>
       <h3 className="text-gray-700">
-        <Link href={getArticleLink(Slug)}>
+        <Link href={getBlogLink(Slug)}>
           <div>
             {!Published && <span className={blogStyles.draftBadge}>Draft</span>}
             <a className={`text-gray-700 cursor-pointer leading-10 ${ArticleTitleSize[titleSize]} transition duration-150 hover:text-orange`}>{Page}</a>

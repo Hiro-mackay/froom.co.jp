@@ -6,6 +6,7 @@ import { postIsPublished } from '../../lib/blog-helpers';
 import getNotionUsers from '../../lib/notion/getNotionUsers';
 import getBlogIndex from '../../lib/notion/getBlogIndex';
 import { MainVisual } from '../../components/MainVisual';
+import { Corporate } from '../../layouts/corporate';
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex();
@@ -43,7 +44,7 @@ export async function getStaticProps({ preview }) {
 
 export default ({ posts = [], preview }) => {
   return (
-    <>
+    <Corporate>
       <Head titlePre="News" />
       {preview && (
         <div className={blogStyles.previewAlertContainer}>
@@ -67,6 +68,6 @@ export default ({ posts = [], preview }) => {
           ))}
         </div>
       </section>
-    </>
+    </Corporate>
   );
 };
