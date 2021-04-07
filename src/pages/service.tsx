@@ -52,7 +52,7 @@ export default () => {
       </header>
       <section className="service-mv md:h-screen">
         <div className="w-full bg-gradient-to-l to-froomBlue from-froomNavy absolute inset-0 service-mv-clip service-mv" style={{ maxWidth: 2480 }}></div>
-        <div className="h-full relative container mx-auto px-6 box-border">
+        <div className="h-full relative container mx-auto px-5 box-border">
           <div className="pt-20 lg:pt-0 service-mv-copy text-white font-bold text-center lg:text-left">
             <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl leading-normal lg:leading-normal xl:leading-normal">
               現場教育を、
@@ -75,12 +75,12 @@ export default () => {
           </div>
         </div>
       </section>
-      <section className="container mx-auto relative py-20 md:py-52 px-6 font-bold">
+      <section className="container mx-auto relative py-20 md:py-52 px-5 font-bold">
         <div className="pb-10">
           <h2 className="text-xl lg:text-4xl pb-4 relative">Froomが解決する課題</h2>
           <Divide />
           <p className="text-sm lg:text-lg text-gray-600 pt-6" style={{ lineHeight: 1.7 }}>
-            現場教育の様々な課題を解決し、新入社員を最速で一人前の技術者として働けるようにサポートします。
+            現場教育の様々な課題を解決し、新入社員を最速で一人前の技術者として働けるようサポートします。
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 lg:gap-5 pt-5 lg:pt-20 text-center text-xl">
@@ -104,7 +104,7 @@ export default () => {
           </div>
         </div>
       </section>
-      <section className="container mx-auto pb-20 md:pb-52 px-6 font-bold">
+      <section className="container mx-auto pb-20 md:pb-52 px-5 font-bold">
         <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-20 items-center">
           <div className="col-span-2 lg:order-2">
             <h2 className="text-xl lg:text-3xl pb-4 relative">
@@ -132,7 +132,7 @@ export default () => {
           </div>
         </div>
       </section>
-      <section className="container mx-auto py-20 md:pb-52 px-8 font-bold">
+      <section className="container mx-auto py-20 md:pb-52 px-5 font-bold">
         <div className="pb-10">
           <h2 className="text-xl lg:text-3xl pb-4 relative">マニュアル作成だけじゃない様々なメリット</h2>
           <Divide />
@@ -155,7 +155,7 @@ export default () => {
             </h3>
             <p className="text-sm lg:text-base inline-block pt-4 text-gray-600">
               教育用に作成した動画は、
-              <span className="inline-block">技術のマニュアル動画として社内に蓄積されていきます。</span>
+              <span className="inline-block">マニュアル動画として社内に蓄積されていきます。</span>
               <br />
               <span className="inline-block">新人技術者のために作った動画が</span>
               <span className="inline-block">社内のナレッジとしてもご活用できます。</span>
@@ -167,7 +167,7 @@ export default () => {
             <p className="text-sm lg:text-base inline-block pt-4 text-gray-600">
               新人技術者は、<span className="inline-block">熟練工の技術を動画で</span>
               <br />
-              「いつでも」「何回でも」学習することができます。
+              「いつでも」「何回でも」学習できます。
             </p>
           </div>
           <div className="w-full">
