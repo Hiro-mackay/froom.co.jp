@@ -4,8 +4,8 @@ import { GlobalNavItem } from '../GlobalNavItem';
 const Page = () => (
   <footer>
     <div className="container flex flex-wrap justify-between px-4 pb-2 mx-auto md:px-10 box-border">
-      <div className="pb-10 lg:max-w-md">
-        <nav className="w-full flex space-x-6 md:space-x-20">
+      <div className="pb-10">
+        <nav className="w-full flex flex-wrap space-x-6 md:space-x-20">
           {GlobalNavigationItems.map((item) => (
             <span key={item.label} className="inline-block  hover:text-orange">
               <GlobalNavItem pathname="" {...item} />

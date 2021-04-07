@@ -50,9 +50,9 @@ export default () => {
           </div>
         </div>
       </header>
-      <section className="h-screen service-mv">
-        <div className="w-full h-full bg-gradient-to-l to-froomBlue from-froomNavy absolute inset-0 service-mv-clip service-mv" style={{ maxWidth: 2480 }}></div>
-        <div className="h-full relative container mx-auto px-10 box-border">
+      <section className="service-mv md:h-screen">
+        <div className="w-full bg-gradient-to-l to-froomBlue from-froomNavy absolute inset-0 service-mv-clip service-mv" style={{ maxWidth: 2480 }}></div>
+        <div className="h-full relative container mx-auto px-6 box-border">
           <div className="pt-20 lg:pt-0 service-mv-copy text-white font-bold text-center lg:text-left">
             <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl leading-normal lg:leading-normal xl:leading-normal">
               現場教育を、
@@ -64,18 +64,18 @@ export default () => {
               新入社員向けの教育動画や、複雑な工程を動画化する<span className="inline-block">動画編集ツールを提供し、</span>作成した後の動画は
               <span className="inline-block">社内マニュアルとして管理することが可能です。</span>
             </p>
-            <p className="pt-10">
+            <p className="pt-5 lg:pt-10">
               <a href="https://forms.gle/LR6CBy3JVEfRwb2D7">
                 <CVButton>問い合わせる</CVButton>
               </a>
             </p>
           </div>
-          <div className="md:w-2/3 lg:w-1/2 max-w-4xl mx-auto lg:mx-0 pt-20 lg:pt-0 lg:absolute service-mv-image right-5">
+          <div className="md:w-2/3 lg:w-1/2 max-w-4xl mx-auto lg:mx-0 pt-10 pb-20 lg:pb-0 lg:pt-0 lg:absolute service-mv-image right-5">
             <img className="w-full" src="images/product-mock-image.png" alt="Froom編集画面" />
           </div>
         </div>
       </section>
-      <section className="container mx-auto relative py-20 md:py-52 px-10 font-bold">
+      <section className="container mx-auto relative py-20 md:py-52 px-6 font-bold">
         <div className="pb-10">
           <h2 className="text-xl lg:text-4xl pb-4 relative">Froomが解決する課題</h2>
           <Divide />
@@ -104,7 +104,7 @@ export default () => {
           </div>
         </div>
       </section>
-      <section className="container mx-auto pb-20 md:pb-52 px-10 font-bold">
+      <section className="container mx-auto pb-20 md:pb-52 px-6 font-bold">
         <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-20 items-center">
           <div className="col-span-2 lg:order-2">
             <h2 className="text-xl lg:text-3xl pb-4 relative">

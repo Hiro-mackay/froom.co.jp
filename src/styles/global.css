@@ -29,7 +29,7 @@ body {
 }
 
 .service-mv{
-    max-height: 780px
+    height: 800px
 }
 
 @media (min-width: 1024px){
