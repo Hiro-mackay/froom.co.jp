@@ -149,7 +149,7 @@ const RenderPost = ({ post, redirect, preview }) => {
         </div>
       )}
       <MainVisual title="NEWS" />
-      <section className="container mx-auto py-24 px-44">
+      <section className="container mx-auto py-24 px-8 lg:px-44">
         <div className={blogStyles.post}>
           {post.Date && <div className="text-xl font-bold pb-4">{getDateStr(post.Date)}</div>}
           <h1 className="text-4xl tracking-wide pb-6 font-bold" style={{ lineHeight: 1.7 }}>
