@@ -70,7 +70,5 @@ export default async function getBlogIndex(previews = true) {
     }
   }
 
-  console.log('postsTable', postsTable);
-
   return postsTable;
 }

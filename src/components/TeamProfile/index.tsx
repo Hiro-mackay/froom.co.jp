@@ -21,7 +21,6 @@ interface AccountProps {
 }
 
 const SelectAccount = ({ type }: { type: string }) => {
-  console.log(type);
   switch (type) {
     case 'twitter':
       return <Twitter className={`fill-current transition duration-150 group-hover:text-twitter w-6 h-6`} />;

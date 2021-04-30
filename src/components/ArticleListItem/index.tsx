@@ -28,7 +28,6 @@ const ArticleTimeSize = {
 };
 
 export const ArticleListItem: React.FC<ArticleItem & ArticleProps> = ({ Page, Published, Slug, Date, titleSize = 'small' }) => {
-  console.log(ArticleTitleSize[titleSize]);
   return (
     <article className="font-bold">
       <p className={`pb-2 text-gray-500 ${ArticleTimeSize[titleSize]}`}>{getDateStr(Date)}</p>

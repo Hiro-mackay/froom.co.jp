@@ -25,7 +25,6 @@ export async function getStaticProps({ params: { slug }, preview }) {
   // if we can't find the post or if it is unpublished and
   // viewed without preview mode then we just redirect to /blog
   if (!post || (post.Published !== 'Yes' && !preview)) {
-    console.log(`Failed to find post for slug: ${slug}`);
     return {
       props: {
         redirect: '/blog',
@@ -52,7 +51,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         properties.html = json.html.split('<script')[0];
         post.hasTweet = true;
       } catch (_) {
-        console.log(`Failed to get tweet embed for ${src}`);
+        console.warn(`Failed to get tweet embed for ${src}`);
       }
     }
   }
@@ -158,7 +157,6 @@ const RenderPost = ({ post, redirect, preview }) => {
           </h1>
           <hr />
 
-
           <div className="pt-2 text-xl font-bold tracking-wide leading-10">
             {(!post.content || post.content.length === 0) && <p>この投稿には本文はありません。</p>}
 
@@ -222,11 +220,11 @@ const RenderPost = ({ post, redirect, preview }) => {
                   </Heading>
                 );
               };
-
               switch (type) {
                 case 'page':
-                case 'divider':
                   break;
+                case 'divider':
+                  return <div style={{ borderBottom: '2px solid rgba(0,0,0,0.1)', marginTop: 20, marginBottom: 20 }} />;
                 case 'text':
                   if (properties) {
                     toRender.push(textBlock(properties.title, false, id));
@@ -235,8 +233,9 @@ const RenderPost = ({ post, redirect, preview }) => {
                 case 'image':
                 case 'video':
                 case 'embed': {
-                  const { format = {} } = value;
+                  const { format = {}, properties } = value;
                   const { block_width, block_height, display_source, block_aspect_ratio } = format;
+                  const { source } = properties;
                   const baseBlockWidth = 768;
                   const roundFactor = Math.pow(10, 2);
                   // calculate percentages
@@ -271,7 +270,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                     child = (
                       <Comp
                         key={!useWrapper ? id : undefined}
-                        src={`/api/asset?assetUrl=${encodeURIComponent(display_source as any)}&blockId=${id}`}
+                        src={`/api/asset?assetUrl=${encodeURIComponent(source.length ? source[0] : undefined)}&blockId=${id}`}
                         controls={!isImage}
                         alt={`An ${isImage ? 'image' : 'video'} from Notion`}
                         loop={!isImage}
@@ -363,7 +362,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                 }
                 default:
                   if (process.env.NODE_ENV !== 'production' && !listTypes.has(type)) {
-                    console.log('unknown type', type);
+                    console.warn('unknown type', type);
                   }
                   break;
               }
