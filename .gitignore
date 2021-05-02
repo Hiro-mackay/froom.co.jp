@@ -27,11 +27,14 @@ yarn-error.log*
 .blog_index_data
 .blog_index_data_previews
 
-.now
-.vercel
-
 # Optional npm cache directory
 .npm
 
 # Optional eslint cache
 .eslintcache
+
+# vercel
+.vercel
+
+# css build
+tailwind.compiled.css*
