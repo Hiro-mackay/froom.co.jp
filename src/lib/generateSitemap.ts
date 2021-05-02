@@ -4,6 +4,8 @@ import fs from 'fs';
 async function generateSiteMap() {
   const pages = await globby(['.next/server/pages/**/*.html', '.next/serverless/pages/**/*.html', '!.next/serverless/pages/**/[*', '!.next/serverless/pages/404.html']);
 
+  const updatedDate = new Date().toISOString().split('T')[0];
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">   
       ${pages
@@ -12,6 +14,9 @@ async function generateSiteMap() {
           return `
       <url>
         <loc>${`https://froom.co.jp${path}`}</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+        <lastmod>${updatedDate}</lastmod>
       </url>
               `;
         })
