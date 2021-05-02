@@ -6,7 +6,7 @@ export const Head = ({ titlePre, description = '' }) => {
   const router = useRouter();
   return (
     <Heads>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <title>{titlePre === 'Home' ? 'Make Interesting' : `${titlePre}`} | Froom Inc.</title>
       <link rel="icon" href="/images/favicon.ico" />
       <meta name="description" content={description || '株式会社Froomは、「Make Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
