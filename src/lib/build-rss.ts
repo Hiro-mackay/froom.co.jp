@@ -86,7 +86,7 @@ async function main() {
     post.date = post.Date;
   });
 
-  const outputPath = './public/atom';
+  const outputPath = './public/atom.xml';
   await writeFile(resolve(outputPath), createRSS(blogPosts));
 }
 
