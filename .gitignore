@@ -38,3 +38,9 @@ yarn-error.log*
 
 # css build
 tailwind.compiled.css*
+
+# static fiile
+public/atom
+public/sitemap.*
+public/robots.*
+

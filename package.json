@@ -5,14 +5,13 @@
   "author": "Jphn Mackay",
   "scripts": {
     "predev": "npm run tailwind:dev",
-    "dev": "next dev",
+    "dev": "node ./src/lib/generateSitemap.ts && next dev",
     "start": "next start",
     "prebuild": "npm run tailwind:dev",
-    "build": "next build && node .next/serverless/scripts/build-rss.js",
+    "build": "next build && node .next/serverless/scripts/build-rss.js && node .next/serverless/scripts/generateSitemap.js",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "tailwind:dev": "tailwindcss build src/styles/tailwind.css -o src/styles/tailwind.compiled.css",
     "tailwind:build": "NODE_ENV=production npx tailwindcss-cli@latest build src/styles/tailwind.css -o src/styles/tailwind.compiled.css"
-
   },
   "husky": {
     "hooks": {
@@ -20,14 +19,17 @@
     }
   },
   "dependencies": {
+    "@types/globby": "^9.1.0",
     "@zeit/react-jsx-parser": "^2.0.0",
     "async-sema": "^3.1.0",
     "github-slugger": "^1.3.0",
+    "globby": "^11.0.3",
     "katex": "^0.12.0",
     "next": "10.0.7",
     "prismjs": "^1.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "sitemap": "^6.4.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
