@@ -1,5 +1,5 @@
-const globby = require('globby');
-const fs = require('fs');
+import globby from 'globby';
+import fs from 'fs';
 
 async function generateSiteMap() {
   const pages = await globby(['.next/server/pages/**/*.html', '.next/serverless/pages/**/*.html']);
@@ -19,10 +19,7 @@ async function generateSiteMap() {
   </urlset>
   `;
 
-  const robots = `
-      User-Agent:*
-      Sitemap:https://froom.co.jp/sitemap.xml
-    `;
+  const robots = `User-Agent:*\nSitemap:https://froom.co.jp/sitemap.xml`;
 
   fs.writeFileSync('public/sitemap.xml', sitemap);
   fs.writeFileSync('public/robots.txt', robots);
