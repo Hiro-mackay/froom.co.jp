@@ -9,8 +9,9 @@ import Link from 'next/link';
 import FroomSVG from '../components/svgs/froom';
 import styles from '../styles/header.module.css';
 import { useCallback, useState } from 'react';
+import NextImg from 'next/image';
 
-export default () => {
+const Page = () => {
   const [videoModal, setVideoModal] = useState(false);
   const [videoRef, setVideoRef] = useState<HTMLVideoElement>(null);
 
@@ -90,7 +91,7 @@ export default () => {
             </p>
           </div>
           <div className="md:w-2/3 lg:w-1/2 max-w-4xl mx-auto lg:mx-0 pt-10 pb-20 lg:pb-0 lg:pt-0 lg:absolute service-mv-image right-5">
-            <img className="w-full" src="images/product-mock-image.png" alt="Froom編集画面" />
+            <NextImg className="w-full" src="/images/product-mock-image.png" width={1980} height={1427} alt="Froom編集画面" />
           </div>
         </div>
       </section>
@@ -144,7 +145,7 @@ export default () => {
             </p>
           </div>
           <div className="col-span-3 mt-14 lg:mt-0 lg:order-1 relative">
-            <img className="w-full" src="images/product-mock-image.png" alt="Froom編集画面" />
+            <NextImg className="w-full" src="/images/product-mock-image.png" width={1980} height={1427} alt="Froom編集画面" />
             <div className="w-full h-full absolute inset-center" style={{ backgroundColor: 'rgba(0,0,0,0.4)', borderRadius: 40 }}></div>
             <div className="w-24 h-24 md:w-32 md:h-32 xl:w-40 xl:h-40 bg-froomNavy transition duration-150 rounded-full cursor-pointer absolute inset-center hover:bg-orange" onClick={onVideoModal}>
               <div className="w-10 h-10 md:w-14 md:h-14 xl:w-16 xl:h-16 absolute inset-center bg-white" style={{ clipPath: 'polygon(0 0, 0% 100%, 100% 50%)', left: '55%' }}></div>
@@ -159,7 +160,7 @@ export default () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-32 pt-20 text-center">
           <div className="w-full">
-            <img className="h-52 mx-auto" src="images/service/undraw_collecting_fjjl.svg" alt="" />
+            <NextImg className="h-52 mx-auto" src="/images/service/undraw_collecting_fjjl.svg" width={500} height={500} alt="作った動画は管理ツールで一元管理" />
             <h3 className="text-xl pt-10">作った動画は管理ツールで一元管理</h3>
             <p className="text-sm lg:text-base inline-block pt-4 text-gray-600">
               作成した動画はすぐにアップロード可能。
@@ -169,7 +170,7 @@ export default () => {
             </p>
           </div>
           <div className="w-full">
-            <img className="h-52 mx-auto" src="images/service/undraw_my_documents_ym8x.svg" alt="" />
+            <NextImg className="h-52 mx-auto" src="/images/service/undraw_my_documents_ym8x.svg" width={500} height={500} alt=" 教育用動画が、会社のマニュアルに" />
             <h3 className="text-xl pt-10 text-center">
               教育用動画が、<span className="inline-block">会社のマニュアルに</span>
             </h3>
@@ -182,7 +183,7 @@ export default () => {
             </p>
           </div>
           <div className="w-full">
-            <img className="h-52 mx-auto" src="images/service/undraw_stepping_up_g6oo.svg" alt="" />
+            <NextImg className="h-52 mx-auto" src="/images/service/undraw_stepping_up_g6oo.svg" width={500} height={500} alt="新人技術者の技術向上" />
             <h3 className="text-xl pt-10 text-center">新人技術者の技術向上</h3>
             <p className="text-sm lg:text-base inline-block pt-4 text-gray-600">
               新人技術者は、<span className="inline-block">熟練工の技術を動画で</span>
@@ -191,7 +192,7 @@ export default () => {
             </p>
           </div>
           <div className="w-full">
-            <img className="h-52 mx-auto" src="images/service/undraw_Online_calendar_re_wk3t.svg" alt="" />
+            <NextImg className="h-52 mx-auto" src="/images/service/undraw_Online_calendar_re_wk3t.svg" width={500} height={500} alt="新人の学習管理が可能" />
             <h3 className="text-xl pt-10 text-center">新人の学習管理が可能</h3>
             <p className="text-sm lg:text-base inline-block pt-4 text-gray-600">
               新人技術者が何を学習しているのか、
@@ -242,3 +243,5 @@ export default () => {
     </div>
   );
 };
+
+export default Page;

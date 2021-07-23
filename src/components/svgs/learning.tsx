@@ -1,4 +1,4 @@
-export default (props) => (
+const Learning = (props) => (
   <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="m30.989 2h2v2h-2z" />
     <path d="m26.397 2.914h2v2h-2z" transform="matrix(.924 -.383 .383 .924 .589 10.786)" />
@@ -24,3 +24,4 @@ export default (props) => (
     <path d="m48 38h5v2h-5z" />
   </svg>
 );
+export default Learning;

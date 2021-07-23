@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import { useEffect } from 'react';
 
-export default ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
     if (!gtag.GA_TRACKING_ID) return;
@@ -20,3 +20,4 @@ export default ({ Component, pageProps }) => {
   }, [router.events]);
   return <Component {...pageProps} />;
 };
+export default App;

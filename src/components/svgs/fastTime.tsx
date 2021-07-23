@@ -1,4 +1,4 @@
-export default (props) => (
+const FastTime = (props) => (
   <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g>
       <path d="m38.872 149.21h79.098c4.142 0 7.5-3.357 7.5-7.5s-3.358-7.5-7.5-7.5h-79.098c-4.142 0-7.5 3.357-7.5 7.5s3.357 7.5 7.5 7.5z" />
@@ -21,3 +21,4 @@ export default (props) => (
     </g>
   </svg>
 );
+export default FastTime;

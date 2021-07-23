@@ -42,7 +42,7 @@ export async function getStaticProps({ preview }) {
   };
 }
 
-export default ({ posts = [], preview }) => {
+const Page = ({ posts = [], preview }) => {
   return (
     <Corporate>
       <Head titlePre="News" />
@@ -51,7 +51,7 @@ export default ({ posts = [], preview }) => {
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
             Viewing in preview mode
-            <Link href={`/api/clear-preview`}>
+            <Link href={`/api/clear-preview`} passHref>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
           </div>
@@ -71,3 +71,4 @@ export default ({ posts = [], preview }) => {
     </Corporate>
   );
 };
+export default Page;

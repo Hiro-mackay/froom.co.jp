@@ -2,7 +2,7 @@ import { Head } from '../components/Head';
 import { MainVisual } from '../components/MainVisual';
 import { TeamProfile } from '../components/TeamProfile';
 import { Corporate } from '../layouts/corporate';
-export default () => {
+const Page = () => {
   return (
     <Corporate>
       <Head titlePre="Company" />
@@ -20,7 +20,7 @@ export default () => {
         <div className="pl-4 pt-32">
           <h2 className="text-4xl lg:text-5xl pb-20 tracking-wider">Team</h2>
           <TeamProfile
-            image="images/mizumoto-ridai.jpg"
+            image="/images/mizumoto-ridai.jpg"
             name="水元 陸大 | Mizumoto Ridai"
             role="Founder, 代表取締役CEO"
             twitter="https://twitter.com/Ridai990215"
@@ -31,13 +31,13 @@ export default () => {
               <br />
               大学入学後はキャリア教育を行う学生団体や、ITベンチャーでの長期インターンを経験。
               元教員志望であり、高校在学時から学生団体参加・運営での学びをきっかけに、愛知教育大学附属高校から42回生にして初めて一般で名古屋大学へ。
-              大学入学後はキャリア教育を行う学生団体や、ITベンチャーでの長期インターンを経験。「"学ぶ"をもっと面白くしたい」という思いから2020年2月にFroomを創業後、様々な教育現場に関わる。コロナによる学びの環境変化から、教育活動のOMO(Online
+              大学入学後はキャリア教育を行う学生団体や、ITベンチャーでの長期インターンを経験。「&#34;学ぶ&#34;をもっと面白くしたい」という思いから2020年2月にFroomを創業後、様々な教育現場に関わる。コロナによる学びの環境変化から、教育活動のOMO(Online
               Merges with Offline)を志す。
             </p>
           </TeamProfile>
           <div className="pt-32">
             <TeamProfile
-              image="images/isogawa-hiroki.jpg"
+              image="/images/isogawa-hiroki.jpg"
               name="五十川 寛基 | Isogawa Hiroki"
               role="Co-Founder, 取締役CTO"
               twitter="https://twitter.com/mackay_1503"
@@ -93,3 +93,4 @@ export default () => {
     </Corporate>
   );
 };
+export default Page;

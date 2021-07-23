@@ -8,6 +8,8 @@ import blogStyles from '../styles/blog.module.css';
 import { ArticleListItem } from '../components/ArticleListItem';
 import FroomSVG from '../components/svgs/froom';
 import { Corporate } from '../layouts/corporate';
+import Link from 'next/link';
+import NextImg from 'next/image';
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex();
@@ -29,7 +31,9 @@ export async function getStaticProps({ preview }) {
   const { users } = await getNotionUsers([...authorsToGet]);
 
   posts.forEach((post) => {
-    post.Authors = post.Authors.map((id) => users[id].full_name);
+    if (post?.Authors) {
+      post.Authors = post.Authors.map((id) => users[id].full_name);
+    }
   });
 
   return {
@@ -66,7 +70,7 @@ const Page = ({ posts = [], preview }) => (
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="lg:mb-5 lg:order-last">
-            <img className="w-full" src="images/product-mock-image.png" alt="Froom編集画面" />
+            <NextImg className="w-full" src="/images/product-mock-image.png" width={1980} height={1427} alt="Froom編集画面" />
           </div>
           <div className="lg:text-2xl lg:leading-10">
             <p className="pb-5 lg:pb-10">Froomは、未経験者でも簡単に動画マニュアルを作成できるプロダクトです。</p>
@@ -74,9 +78,11 @@ const Page = ({ posts = [], preview }) => (
             <p>教育担当の上司の新人教育に割く時間、さらには業務の機会損失を減らします。</p>
             <p>また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。</p>
             <p className="pt-8">
-              <a href="/service">
-                <CVButton>詳しく見る</CVButton>
-              </a>
+              <Link href="/service" passHref>
+                <a>
+                  <CVButton>詳しく見る</CVButton>
+                </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -91,7 +97,15 @@ const Page = ({ posts = [], preview }) => (
         <div className="font-normal lg:font-bold leading-8 lg:text-2xl lg:leading-10">
           <p className="pb-8">Froomには“From Room”「今この部屋・この場所から始めていこう」という言葉が由来で、FromとRoomの2語を組み合わせました。</p>
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-            <img className="mt-auto mb-3 lg:mb-0 lg:order-last" src="images/core-member-photos.jpg" alt="Froom Member" />
+            <NextImg
+              className="mt-auto mb-3 lg:mb-0 lg:order-last"
+              objectFit={'contain'}
+              objectPosition={'50% 50%'}
+              src="/images/core-member-photos.jpg"
+              width={1980}
+              height={1320}
+              alt="Froom Member"
+            />
             <p className="xl:col-span-2">
               私たちが目指すのは「Interestingな学びを実現すること」です。
               <br />
@@ -119,11 +133,15 @@ const Page = ({ posts = [], preview }) => (
           <h2 className="text-2xl lg:text-4xl lg:pb-8 tracking-wide">News</h2>
           <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
             {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
-            {posts.map((post) => (
-              <div className="px-3 py-8" key={post.Slug}>
-                <ArticleListItem {...post}></ArticleListItem>
-              </div>
-            ))}
+            {posts.map((post) => {
+              return (
+                post && (
+                  <div className="px-3 py-8" key={post?.Slug}>
+                    <ArticleListItem {...post}></ArticleListItem>
+                  </div>
+                )
+              );
+            })}
           </div>
         </div>
       </section>
@@ -166,25 +184,6 @@ const Page = ({ posts = [], preview }) => (
                   <span className="text-sm text-gray-400 pt-2 block">※名古屋大学オープンイノベーション拠点内受付</span>
                 </div>
               </div>
-              {/* <div className="flex items-center pb-10 lg:pb-14">
-                <div className="pr-8">
-                  <svg className="w-6 h-6" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5 5H25C26.375 5 27.5 6.125 27.5 7.5V22.5C27.5 23.875 26.375 25 25 25H5C3.625 25 2.5 23.875 2.5 22.5V7.5C2.5 6.125 3.625 5 5 5Z"
-                      stroke="#25282B"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path d="M27.5 7.5L15 16.25L2.5 7.5" stroke="#25282B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <div>
-                  <a className="pb-1 border-b-2 border-gray-300 lg:text-xl" href="mailto:info@froom.co.jp">
-                    info@froom.co.jp
-                  </a>
-                </div>
-              </div> */}
               <div className="flex">
                 <div className="pt-2 pr-8">
                   <svg className="w-6 h-6" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

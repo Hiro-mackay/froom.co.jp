@@ -1,14 +1,5 @@
-export default props => (
-  <svg
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    fill="none"
-    shapeRendering="geometricPrecision"
-    {...props}
-  >
+const Edit = (props) => (
+  <svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" shapeRendering="geometricPrecision" {...props}>
     <path d="M4 21v-7" />
     <path d="M4 10V3" />
     <path d="M12 21v-9" />
@@ -19,4 +10,5 @@ export default props => (
     <path d="M9 8h6" />
     <path d="M17 16h6" />
   </svg>
-)
+);
+export default Edit;

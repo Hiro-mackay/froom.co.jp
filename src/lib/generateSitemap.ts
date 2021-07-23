@@ -30,4 +30,4 @@ async function generateSiteMap() {
   fs.writeFileSync('public/robots.txt', robots);
 }
 
-generateSiteMap();
+generateSiteMap().catch(console.error);

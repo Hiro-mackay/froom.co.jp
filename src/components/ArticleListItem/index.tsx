@@ -33,10 +33,8 @@ export const ArticleListItem: React.FC<ArticleItem & ArticleProps> = ({ Page, Pu
       <p className={`pb-2 text-gray-500 ${ArticleTimeSize[titleSize]}`}>{getDateStr(Date)}</p>
       <h3 className="text-gray-700">
         <Link href={getBlogLink(Slug)}>
-          <div>
-            {!Published && <span className={blogStyles.draftBadge}>Draft</span>}
-            <a className={`text-gray-700 cursor-pointer leading-10 ${ArticleTitleSize[titleSize]} transition duration-150 hover:text-orange`}>{Page}</a>
-          </div>
+          {/* {!Published && <span className={blogStyles.draftBadge}>Draft</span>} */}
+          <a className={`text-gray-700 cursor-pointer leading-10 ${ArticleTitleSize[titleSize]} transition duration-150 hover:text-orange`}>{Page}</a>
         </Link>
       </h3>
     </article>

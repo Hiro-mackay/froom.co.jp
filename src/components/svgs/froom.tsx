@@ -1,4 +1,4 @@
-export default (props) => (
+const Froom = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 192" {...props}>
     <defs>
       <style>{'.cls-1{fill:#ffc843;}.cls-2{fill:#00b3e3;}.cls-3{fill:#008c3c;}.cls-4{fill:#da3ab3;}.cls-5{fill:#00299f;}.cls-6{fill:#da2d2f;}'}</style>
@@ -18,3 +18,4 @@ export default (props) => (
     <path className="cls-6" d="M505.1,87a46.35,46.35,0,0,0-14.51,33.68V180h29V120.71A46.3,46.3,0,0,0,505.1,87" />
   </svg>
 );
+export default Froom;

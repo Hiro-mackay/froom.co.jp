@@ -15,6 +15,7 @@ import { getBlogLink, getDateStr } from '../../lib/blog-helpers';
 import { Head } from '../../components/Head';
 import { MainVisual } from '../../components/MainVisual';
 import { Corporate } from '../../layouts/corporate';
+import { route } from 'next/dist/next-server/server/router';
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -111,12 +112,12 @@ const RenderPost = ({ post, redirect, preview }) => {
         document.querySelector('body').appendChild(script);
       }
     }
-  }, []);
+  }, [post]);
   useEffect(() => {
     if (redirect && !post) {
       router.replace(redirect);
     }
-  }, [redirect, post]);
+  }, [redirect, post, router]);
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -129,7 +130,7 @@ const RenderPost = ({ post, redirect, preview }) => {
   if (!post) {
     return (
       <div className={blogStyles.post}>
-        <p>Woops! didn't find that post, redirecting you back to the blog index</p>
+        <p>Woops! didn&#39;t find that post, redirecting you back to the blog index</p>
       </div>
     );
   }
@@ -142,7 +143,7 @@ const RenderPost = ({ post, redirect, preview }) => {
           <div className={blogStyles.previewAlert}>
             <b>Note:</b>
             Viewing in preview mode
-            <Link href={`/api/clear-preview?slug=${post.Slug}`}>
+            <Link href={`/api/clear-preview?slug=${post.Slug}`} passHref>
               <button className={blogStyles.escapePreview}>Exit Preview</button>
             </Link>
           </div>

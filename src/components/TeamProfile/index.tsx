@@ -4,6 +4,7 @@ import Twitter from '../svgs/twitter';
 import Github from '../svgs/github';
 import Notion from '../svgs/notion';
 import Writter from '../svgs/writer';
+import NextImg from 'next/image';
 
 export interface TeamProfileProps {
   image: string;
@@ -47,9 +48,9 @@ const ProfileAccount = (props: AccountProps) => {
 
 export const TeamProfile: React.FC<TeamProfileProps> = ({ children, image, name, role, twitter, notion, github, document }) => {
   return (
-    <div className="md:flex">
-      <div className="w-full md:w-60 flex-none pb-6 md:pb-0">
-        <img className="w-44 m-auto md:m-0" src={image} alt={name} />
+    <div className="md:flex md:gap-8">
+      <div className="w-full md:w-48 flex-none pb-6 md:pb-0">
+        <NextImg src={image} width={500} height={500} alt={name} />
       </div>
       <div className="flex-grow">
         <div className="text-center md:text-left">
