@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <title>My Blog</title>
+    <subtitle>Blog</subtitle>
+    <link href="/atom" rel="self" type="application/rss+xml"/>
+    <link href="/" />
+    <updated>2021-07-23T05:00:27.357Z</updated>
+    <id>My Notion Blog</id>
+    <entry>
+      <id>/news/cent-pitch-presentation</id>
+      <title>CENT Pitchに登壇しました</title>
+      <link href="/news/cent-pitch-presentation"/>
+      <updated>2021-04-06T15:00:00.234Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>代表の水元が、2021年4月7日にナゴヤイノベーターズガレージにて開催された、中部圏を中心としたスタートアップ・ベンチャー企業によるピッチイベントであるCENT Pitch#6に登壇いたしました。</p><p>今回のピッチでは、自社開発している現場教育をカンタン動画化する”Froom”が解決する課題や、機能、当社が目指すビジョンなどを発表しました。</p>
+          <p class="more">
+            <a href="/news/cent-pitch-presentation">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Mackay John</name></author>
+    </entry>
+  </feed>

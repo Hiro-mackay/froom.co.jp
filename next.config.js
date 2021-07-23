@@ -33,8 +33,6 @@ if (!BLOG_INDEX_ID) {
 }
 
 module.exports = {
-  target: 'experimental-serverless-trace',
-
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg;
@@ -45,8 +43,8 @@ module.exports = {
     const originalEntry = cfg.entry;
     cfg.entry = async () => {
       const entries = { ...(await originalEntry()) };
-      entries['./scripts/build-rss'] = './src/lib/build-rss.ts';
-      entries['./scripts/generateSitemap'] = './src/lib/generateSitemap.ts';
+      entries['build-rss'] = './src/lib/build-rss.ts';
+      entries['generateSitemap'] = './src/lib/generateSitemap.ts';
       return entries;
     };
     return cfg;

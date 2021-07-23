@@ -9,7 +9,7 @@
     "dev": "next dev",
     "start": "next start",
     "prebuild": "npm run tailwind:build",
-    "build": "next build && node .next/serverless/scripts/build-rss.js && node .next/serverless/scripts/generateSitemap.js",
+    "build": "next build && node .next/server/build-rss.js && node .next/server/generateSitemap.js",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "tailwind:dev": "tailwindcss build src/styles/tailwind.css -o src/styles/tailwind.compiled.css",
     "tailwind:build": "NODE_ENV=production npx tailwindcss-cli@latest build src/styles/tailwind.css -o src/styles/tailwind.compiled.css"

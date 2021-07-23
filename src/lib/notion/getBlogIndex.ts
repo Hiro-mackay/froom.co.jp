@@ -1,6 +1,5 @@
 import { Sema } from 'async-sema';
 import rpc, { values } from './rpc';
-import createTable from './createTable';
 import getTableData from './getTableData';
 import { getPostPreview } from './getPostPreview';
 import { readFile, writeFile } from '../fs-helpers';
@@ -56,10 +55,7 @@ export default async function getBlogIndex(previews = true) {
           .map(async (postKey) => {
             await sema.acquire();
             const post = postsTable[postKey];
-            const _preview = post.id ? await getPostPreview(postsTable[postKey].id) : [];
-
-            post.preview = _preview.filter((pre) => !!pre);
-
+            post.preview = post.id ? (await getPostPreview(postsTable[postKey].id)).filter((pre) => !!pre) : [];
             sema.release();
           })
       );
