@@ -62,7 +62,7 @@ const Page = ({ posts = [], preview }) => {
         <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
           {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
           {posts.map((post) => (
-            <div className="px-3 py-8" key={post.Slug}>
+            <div className="px-3 py-8" key={post?.Slug}>
               <ArticleListItem titleSize="large" {...post} />
             </div>
           ))}

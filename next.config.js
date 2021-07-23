@@ -45,8 +45,8 @@ module.exports = {
     const originalEntry = cfg.entry;
     cfg.entry = async () => {
       const entries = { ...(await originalEntry()) };
-      entries['./scripts/build-rss.js'] = './src/lib/build-rss.ts';
-      entries['./scripts/generateSitemap.js'] = './src/lib/generateSitemap.ts';
+      entries['./scripts/build-rss'] = './src/lib/build-rss.ts';
+      entries['./scripts/generateSitemap'] = './src/lib/generateSitemap.ts';
       return entries;
     };
     return cfg;
