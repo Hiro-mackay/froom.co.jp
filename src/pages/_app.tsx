@@ -1,4 +1,5 @@
 import '../styles/tailwind.compiled.css';
+import '../styles/base.css';
 import 'katex/dist/katex.css';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
