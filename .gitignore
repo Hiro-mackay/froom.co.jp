@@ -40,7 +40,7 @@ yarn-error.log*
 tailwind.compiled.css*
 
 # static fiile
-public/atom
+public/atom.*
 public/sitemap.*
 public/robots.*
 

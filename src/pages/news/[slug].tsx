@@ -52,7 +52,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         properties.html = json.html.split('<script')[0];
         post.hasTweet = true;
       } catch (_) {
-        console.warn(`Failed to get tweet embed for ${src}`);
+        console.log(`Failed to get tweet embed for ${src}`);
       }
     }
   }
