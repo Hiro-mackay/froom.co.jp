@@ -10,15 +10,15 @@ export const Head = ({ titlePre, description = '' }) => {
     <NextHead>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta charSet="utf-8" />
-      <title>{titlePre === 'Home' ? 'Make Interesting' : `${titlePre}`} | Froom Inc.</title>
+      <title>{titlePre === 'Home' ? 'Make Make Learn Interesting' : `${titlePre}`} | Froom Inc.</title>
       <link rel="icon" href="/images/favicon.ico" />
-      <meta name="description" content={description || '株式会社Froomは、「Make Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
+      <meta name="description" content={description || '株式会社Froomは、「Make Learn Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
       <meta name="google-site-verification" content="dy4zVD5RdchspJO3UPCW2FLC3P7TxqXB1OVtV6xKAAA" />
       <meta property="og:url" content={router.basePath} />
-      <meta property="og:title" content="Froom Inc. Make Interesting" />
-      <meta property="og:description" content={description || '株式会社Froomは、「Make Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
+      <meta property="og:title" content="Froom Inc. Make Learn Interesting" />
+      <meta property="og:description" content={description || '株式会社Froomは、「Make Learn Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
       <meta property="og:image" content="/images/og-image.png" />
-      <meta name="twitter:site" content="Froom Inc. Make Interesting" />
+      <meta name="twitter:site" content="Froom Inc. Make Learn Interesting" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="/images/og-image.png" />
       <script

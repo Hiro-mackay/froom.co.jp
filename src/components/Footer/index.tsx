@@ -13,7 +13,7 @@ const Page = () => (
           ))}
         </nav>
       </div>
-      <div className=" text-sm">© 2021 Froom, Inc. Make Interesting.</div>
+      <div className=" text-sm">© 2021 Froom, Inc. Make Learn Interesting.</div>
     </div>
   </footer>
 );

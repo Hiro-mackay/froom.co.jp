@@ -8,6 +8,7 @@ import { VideoServicePlanQuestion, VideoServicePlanRecommend } from '../componen
 import { PriceBox } from '../components/VideoService/Price';
 import { PricePlansGroupType } from '../components/VideoService/Price/prices';
 import servideStyles from '../styles/videoservice.module.css';
+import NextImg from 'next/image';
 
 const Page = () => {
   const [recommendPlanIndex, setRecommendPlanIndex] = useState<number>();
@@ -42,7 +43,6 @@ const Page = () => {
 
   return (
     <div className="relative h-full overflow-hidden">
-      <style>{'html { scroll-behavior: smooth}'}</style>
       <Head titlePre="動画作成支援サービス" />
 
       <header className="fixed z-10 flex flex-wrap items-center justify-between w-full box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-3">
@@ -83,7 +83,9 @@ const Page = () => {
               </Link>
             </div>
           </div>
-          <img className={servideStyles['mv-item-img']} src="images/video_creation/video-creation-mv-item.png" />
+          <div className={servideStyles['mv-item-img']}>
+            <NextImg className="w-full" src="/images/video_creation/video-creation-mv-item.png" width={1000} height={636} />
+          </div>
         </div>
       </section>
 
@@ -99,7 +101,7 @@ const Page = () => {
 
         <div className="flex flex-col md:flex-row items-center space-y-10 md:space-x-10 lg:space-x-24">
           <div className="flex-grow">
-            <img src="images/video_creation/service-1.png" alt="" />
+            <NextImg className="w-full" src="/images/video_creation/service-1.png" width={720} height={720} />
           </div>
           <div className="flex-grow-0">
             <svg className="text-green-500 w-16 md:w-24 transform rotate-90	md:rotate-0" viewBox="0 0 139 143" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +110,7 @@ const Page = () => {
             </svg>
           </div>
           <div className="flex-grow">
-            <img src="images/video_creation/service-2.png" alt="" />
+            <NextImg className="w-full" src="/images/video_creation/service-2.png" width={720} height={720} />
           </div>
         </div>
       </section>

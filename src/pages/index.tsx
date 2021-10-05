@@ -57,26 +57,24 @@ const Page = ({ posts = [], preview }) => (
       <section className="container px-2 mx-auto text-center text-white ">
         <div className="my-60 lg:mt-80 lg:mb-96">
           <h2 className="pb-10 text-2xl lg:pb-20 lg:text-6xl tracking-wide">Mission</h2>
-          <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-8xl tracking-wide">Make Interesting</h3>
+          <h3 className="pb-5 text-4xl font-extrabold lg:pb-10 lg:text-8xl tracking-wide">Make Learn Interesting</h3>
           <p className="text-lg text-gray-100 lg:font-bold lg:text-3xl">働くことを、学ぶことをもっと楽しく、面白く！</p>
         </div>
       </section>
-      <section id="service" className="w-11/12 px-8 py-20 mb-1 ml-auto bg-white shadow-xl w-max-top-card lg:p-32">
-        <h2 className="pb-10 text-2xl lg:pb-16 lg:text-4xl tracking-wide">Service</h2>
-        <h3 className="pb-12 text-4xl lg:pb-20 lg:text-5xl">
-          現場教育を、
-          <br className="lg:hidden" />
-          カンタン動画化
-        </h3>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="lg:mb-5 lg:order-last">
+      <section id="service" className="container w-10/12 mx-auto my-20 lg:my-40 grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="bg-white shadow-xl px-10 md:px-16 py-14 md:py-20">
+          <h2 className="pb-12 text-2xl lg:text-4xl">
+            現場教育を、
+            <br />
+            カンタン動画化
+          </h2>
+          <div className="pb-10 md:w-3/4 mx-auto">
             <NextImg className="w-full" src="/images/product-mock-image.png" width={1980} height={1427} alt="Froom編集画面" />
           </div>
-          <div className="lg:text-2xl lg:leading-10">
-            <p className="pb-5 lg:pb-10">Froomは、未経験者でも簡単に動画マニュアルを作成できるプロダクトです。</p>
+          <div className="lg:text-base lg:leading-10">
             <p>スマホ・タブレットから動画マニュアルを簡単作成。</p>
             <p>教育担当の上司の新人教育に割く時間、さらには業務の機会損失を減らします。</p>
-            <p>また、新人社員は作成した動画マニュアルにスマホからアクセス可能。あらかじめ学習することでOJTの時間・回数を減らします。</p>
+            <p>新人社員はあらかじめ作成された動画で学習することでOJTの時間・回数を減らします。</p>
             <p className="pt-8">
               <Link href="/service" passHref>
                 <a>
@@ -86,8 +84,30 @@ const Page = ({ posts = [], preview }) => (
             </p>
           </div>
         </div>
+        <div className="bg-white shadow-xl px-10 md:px-16 py-14 md:py-20">
+          <h2 className="pb-12 text-2xl lg:text-4xl">
+            あなたにマッチした
+            <br />
+            動画作成プランを作成
+          </h2>
+          <div className="pb-10 md:w-3/4 mx-auto">
+            <NextImg className="w-full" src="/images/service-top.png" width={1980} height={1427} alt="Froom編集画面" />
+          </div>
+          <div className="lg:leading-10">
+            <p>撮影、動画のクオリティ、動画の本数などによって、最適な動画作成のプランは異なります。</p>
+            <p>Froomは、様々なビジネスユースケースにマッチした動画作成プランを準備しています。</p>
+            <p>簡単な質問に答えるだけで、最適なプランを作成します。</p>
+            <p className="pt-8">
+              <Link href="/video-creation" passHref>
+                <a>
+                  <CVButton>詳しく見る</CVButton>
+                </a>
+              </Link>
+            </p>
+          </div>
+        </div>
       </section>
-      <section id="member" className="w-11/12 px-8 py-20 bg-white shadow-xl w-max-top-card lg:p-32">
+      <section id="member" className="px-8 py-20 bg-white shadow-xl w-max-top-card lg:p-32">
         <h2 className="pb-10 text-2xl lg:pb-16 lg:text-4xl tracking-wide">About us</h2>
         <h3 className="pb-12 text-4xl lg:pb-20 lg:text-5xl">
           未来の教育を
