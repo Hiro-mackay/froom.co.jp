@@ -10,6 +10,7 @@ import { PricePlansGroupType, PricePlansNameType } from '../components/VideoServ
 import servideStyles from '../styles/videoservice.module.css';
 import NextImg from 'next/image';
 import { ProfessitionalPlan } from '../components/VideoService/PlanRecommend/plans';
+import { SmoothScroll } from '../components/SmoothScroll';
 
 const Page = () => {
   const [recommendPlanIndex, setRecommendPlanIndex] = useState<number>();
@@ -54,7 +55,7 @@ const Page = () => {
   return (
     <div className="relative h-full overflow-hidden">
       <Head titlePre="動画作成支援サービス" />
-
+      <SmoothScroll />
       <header className="fixed z-10 flex flex-wrap items-center justify-between w-full box-border md:pl-5 lg:pl-10 md:pr-10 lg:pr-16 xl:pr-28 md:py-2 lg:py-3">
         <div className="flex flex-wrap items-center justify-between w-full box-border">
           <div className="flex items-center flex-shrink-0 mr-6 pl-6 py-3">
@@ -109,7 +110,7 @@ const Page = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center space-y-10 md:space-x-10 lg:space-x-24">
+        <div className="flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-10 lg:space-x-24">
           <div className="flex-grow">
             <NextImg className="w-full" src="/images/video_creation/service-1.svg" width={720} height={720} />
           </div>
@@ -300,7 +301,7 @@ const Page = () => {
       <section className="py-20 md:py-28 px-5 font-bold  text-white text-center" style={{ background: 'linear-gradient(90deg, rgba(28,104,182,1) 0%, rgba(16,185,129,1) 100%)' }}>
         <div className="container mx-auto ">
           <h3 className="text-3xl">動画を活用して、ビジネスを加速させましょう！</h3>
-          <p className="py-10">ご不明な点は、お気軽におお問い合わせください。</p>
+          <p className="py-10">ご不明な点は、お気軽にお問い合わせください。</p>
 
           <Link href="https://forms.gle/gZnA2d1WFR2oY7kx9" passHref>
             <button className="text-base text-center text-white rounded-full transition duration-150 py-3 w-full max-w-sm bg-yellow-500 hover:bg-yellow-600">お問い合わせはこちらから</button>

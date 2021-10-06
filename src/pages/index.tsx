@@ -86,7 +86,7 @@ const Page = ({ posts = [], preview }) => (
         </div>
         <div className="bg-white shadow-xl px-10 md:px-16 py-14 md:py-20">
           <h2 className="pb-12 text-2xl lg:text-4xl">
-            あなたにマッチした
+            貴社にマッチした
             <br />
             動画作成プランを作成
           </h2>
