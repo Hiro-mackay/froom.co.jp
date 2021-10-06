@@ -102,7 +102,7 @@ const Page = () => {
 
       <section className="container mx-auto relative py-20 md:py-28 px-5 font-bold">
         <div className="pb-20 text-center">
-          <h2 className="text-xl lg:text-4xl pb-4">最適な動画プランを提供します！</h2>
+          <h2 className="text-xl lg:text-4xl pb-4">最適な動画作成プランを提供します！</h2>
           <p className="text-sm lg:text-lg text-gray-600 pt-6" style={{ lineHeight: 1.7 }}>
             撮影の難しさ、作成する動画のクオリティ、作成する動画の本数などによって、最適な動画作成のプランは異なります。
             <br />
