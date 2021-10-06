@@ -47,8 +47,8 @@ export const VideoServicePlanQuestion = ({ loading, selectedPlan }: PropsType) =
     {
       title: '動画のイメージは？',
       questions: {
-        left: { text: '動画マニュアルや研修動画など、クオリティよりも、内容が大事である。', icon: <ContentOrientedIcon /> },
-        right: { text: '会社紹介やプロモーション動画など、クオリティの高さが大事である。', icon: <HightQualityIcon /> },
+        left: { text: '会社紹介やプロモーション動画など、クオリティの高さが大事である。', icon: <HightQualityIcon /> },
+        right: { text: '動画マニュアルや研修動画など、クオリティよりも、内容が大事である。', icon: <ContentOrientedIcon /> },
       },
       answer: highQuality,
       disptch: setHighQuality,

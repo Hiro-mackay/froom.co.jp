@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { replaceLinFeedCodoToHtmlBr } from '../../../lib/replaceLinFeedCodoToHtmlBr';
-import { PlanType } from './plans';
+import { PlanNameType, PlanType } from './plans';
 import Link from 'next/link';
 
 type PropsType = {
   plan: PlanType;
+  setFocusPrice: Dispatch<SetStateAction<PlanNameType>>;
 };
 
-export const PlanCard = ({ plan }: PropsType) => {
+export const PlanCard = ({ plan, setFocusPrice }: PropsType) => {
   const [scheduleIndex, setScheduleIndex] = useState(0);
   return (
     <div className="flex flex-col py-16 bg-white shadow-lg rounded-sm">
@@ -238,7 +239,14 @@ export const PlanCard = ({ plan }: PropsType) => {
             <button className="w-full text-sx md:text-lg text-center text-white rounded-full transition duration-150 py-4 bg-yellow-500 hover:bg-yellow-600">プランについて相談する</button>
           </Link>
           <Link href="#price" passHref>
-            <button className="w-full text-sx md:text-lg text-center text-white rounded-full transition duration-150 py-4 bg-blue-500 hover:bg-blue-600">プランの金額を確認する</button>
+            <button
+              className="w-full text-sx md:text-lg text-center text-white rounded-full transition duration-150 py-4 bg-blue-500 hover:bg-blue-600"
+              onClick={() => {
+                setFocusPrice(plan.type);
+              }}
+            >
+              プランの金額を確認する
+            </button>
           </Link>
         </div>
       </div>

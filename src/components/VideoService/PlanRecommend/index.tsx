@@ -1,15 +1,16 @@
-import { useMemo } from 'react';
+import { useMemo, Dispatch, SetStateAction } from 'react';
 import { PlanCard } from './PlanCard';
-import { PlanNameMap, RecommendPlans } from './plans';
+import { PlanNameMap, PlanNameType, RecommendPlans } from './plans';
 import { PlanSimpleCard } from './PlanSimpleCard';
 import Link from 'next/link';
 
 type PropsType = {
   planIndex: number;
   onReset: () => void;
+  setFocusPrice: Dispatch<SetStateAction<PlanNameType>>;
 };
 
-export const VideoServicePlanRecommend = ({ planIndex, onReset }: PropsType) => {
+export const VideoServicePlanRecommend = ({ planIndex, onReset, setFocusPrice }: PropsType) => {
   const plan = useMemo(() => {
     const planName = PlanNameMap.get(planIndex);
     return RecommendPlans.get(planName);
@@ -25,10 +26,10 @@ export const VideoServicePlanRecommend = ({ planIndex, onReset }: PropsType) => 
           <PlanSimpleCard plan={AllInclusivePlan} href="#recommend-plan-2" />
         </div>
         <div className="my-28" id="recommend-plan-1">
-          <PlanCard plan={plan} />
+          <PlanCard plan={plan} setFocusPrice={setFocusPrice} />
         </div>
         <div className="my-28" id="recommend-plan-2">
-          <PlanCard plan={AllInclusivePlan} />
+          <PlanCard plan={AllInclusivePlan} setFocusPrice={setFocusPrice} />
         </div>
 
         <div className="flex justify-center">

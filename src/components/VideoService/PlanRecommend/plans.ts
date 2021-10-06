@@ -1,19 +1,22 @@
-export type PlanNameType = 'ProfessionalPlan' | 'TrainingPlan' | 'ToolImplementationPlan' | 'AllInclusivePlan';
+export type PlanNameType = 'AllInclusivePlan' | 'ProfessionalTrainingPlan' | 'ProfessionalToolImplementationPlan' | 'TrainingPlan' | 'ToolImplementationPlan';
+export const ProfessitionalPlan = ['AllInclusivePlan', 'ProfessionalTrainingPlan', 'ProfessionalToolImplementationPlan'];
+
 type PlanContnetType = { title: string; description: string };
 export type PlanType = {
   link: string;
+  type: PlanNameType;
   schedules: { [key: number]: PlanContnetType[] };
 } & PlanContnetType;
 
 export const RecommendPlans = new Map<PlanNameType, PlanType>();
 
 export const PlanNameMap = new Map<number, PlanNameType>();
-PlanNameMap.set(0, 'ProfessionalPlan');
+PlanNameMap.set(0, 'ProfessionalTrainingPlan');
 PlanNameMap.set(1, 'TrainingPlan');
 PlanNameMap.set(2, 'ToolImplementationPlan');
 PlanNameMap.set(3, 'AllInclusivePlan');
 
-const ProfessionalPlan: PlanType = {
+const ProfessionalTrainingPlan: PlanType = {
   title: `プロの撮影
   ＋
   動画編集人材の育成プラン`,
@@ -21,9 +24,9 @@ const ProfessionalPlan: PlanType = {
     撮影はプロに任せて、その後の動画編集を社内内製化を行うことで、継続的な動画活用を行なっていける体制を社内で整えます。
     PRや商品紹介などの高いクオリティが求められる動画を素早く作成できます。
     `,
-
   link:
     'https://docs.google.com/forms/d/e/1FAIpQLScu1q4Faavi7QnZ6xmPOss3KDNA7eQ0vLGGdqlQJoxhxNaR2w/viewform?usp=pp_url&entry.1254271756=%E3%83%97%E3%83%AD%E3%81%AE%E6%92%AE%E5%BD%B1%EF%BC%8B%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86%E4%BA%BA%E6%9D%90%E3%81%AE%E8%82%B2%E6%88%90%E3%83%97%E3%83%A9%E3%83%B3',
+  type: 'ProfessionalTrainingPlan',
   schedules: {
     0: [
       {
@@ -80,6 +83,8 @@ const TrainingPlan: PlanType = {
   撮影から動画編集までを社内で内製化を行い、いつでも動画撮影から編集までを社内で一気通貫で行える体制を整えることができます。`,
   link:
     'https://docs.google.com/forms/d/e/1FAIpQLScu1q4Faavi7QnZ6xmPOss3KDNA7eQ0vLGGdqlQJoxhxNaR2w/viewform?usp=pp_url&entry.1254271756=%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86%E4%BA%BA%E6%9D%90%E3%81%AE%E8%82%B2%E6%88%90%E3%83%97%E3%83%A9%E3%83%B3',
+
+  type: 'TrainingPlan',
   schedules: {
     0: [
       {
@@ -135,6 +140,8 @@ const ToolImplementationPlan: PlanType = {
   継続的な動画活用を行なっていける体制を低コストで整えることができます。`,
   link:
     'https://docs.google.com/forms/d/e/1FAIpQLScu1q4Faavi7QnZ6xmPOss3KDNA7eQ0vLGGdqlQJoxhxNaR2w/viewform?usp=pp_url&entry.1254271756=%E3%82%AB%E3%83%B3%E3%82%BF%E3%83%B3%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86%E3%83%84%E3%83%BC%E3%83%AB%E5%B0%8E%E5%85%A5%E3%83%97%E3%83%A9%E3%83%B3',
+
+  type: 'ToolImplementationPlan',
   schedules: {
     0: [
       {
@@ -188,6 +195,8 @@ const AllInclusivePlan: PlanType = {
   動画のクオリティを最大化し、時間と工数を割くことなく、動画を作成することができます。`,
   link:
     'https://docs.google.com/forms/d/e/1FAIpQLScu1q4Faavi7QnZ6xmPOss3KDNA7eQ0vLGGdqlQJoxhxNaR2w/viewform?usp=pp_url&entry.1254271756=%E5%85%A8%E9%83%A8%E3%81%8A%E4%BB%BB%E3%81%9B%E3%83%97%E3%83%A9%E3%83%B3',
+
+  type: 'AllInclusivePlan',
   schedules: {
     0: [
       {
@@ -231,7 +240,7 @@ const AllInclusivePlan: PlanType = {
   },
 };
 
-RecommendPlans.set('ProfessionalPlan', ProfessionalPlan);
+RecommendPlans.set('ProfessionalTrainingPlan', ProfessionalTrainingPlan);
 RecommendPlans.set('TrainingPlan', TrainingPlan);
 RecommendPlans.set('ToolImplementationPlan', ToolImplementationPlan);
 RecommendPlans.set('AllInclusivePlan', AllInclusivePlan);

@@ -1,44 +1,50 @@
 import { replaceLinFeedCodoToHtmlBr } from '../../../lib/replaceLinFeedCodoToHtmlBr';
-import { PricePlansGroupType, PricePlanType } from './prices';
+import { PricePlansGroupType, PricePlansNameType, PricePlanType } from './prices';
 import Link from 'next/link';
 import styles from '../../../styles/videoservice.module.css';
+import { ProfessitionalPlan } from '../PlanRecommend/plans';
 
 export type PropsType = {
   price: PricePlanType;
   group: PricePlansGroupType;
+  focusType: PricePlansNameType;
 };
 
-const professitionalPlan = ['AllInclusivePlan', 'ProfessionalTrainingPlan', 'ProfessionalToolImplementationPlan'];
-
-export const PriceCard = ({ price, group }: PropsType) => {
+export const PriceCard = ({ price, group, focusType }: PropsType) => {
   return (
-    <div className={`border flex flex-col py-14 px-5 relative ${group === 'professional' ? 'md:px-6' : 'md:px-14'}`}>
+    <div className={`flex flex-col py-14 px-5 relative ${group === 'professional' ? 'md:px-6' : 'md:px-14'} ${focusType === price.type ? 'bg-green-500 text-white' : 'bg-white border'}`}>
       <h3 className="text-2xl text-center">{replaceLinFeedCodoToHtmlBr(price.title)}</h3>
 
       <p className="text-center pt-6">
         <span className="text-5xl pr-6">{price.price.amount}</span>
         <span className="text-lg">{price.price.ntoes}</span>
       </p>
-      <p className={`pt-10 pb-10 text-gray-600`}>
+      <p className={`pt-10 pb-10 ${focusType === price.type ? 'text-gray-100' : 'text-gray-600'}`}>
         {replaceLinFeedCodoToHtmlBr(price.description)}
         {price.detail && (
           <>
             <br />
             <Link href={price.detail.link}>
-              <a className="text-blue-500 underline">{price.detail.text}</a>
+              <a className={` underline  ${focusType === price.type ? 'text-blue-600' : 'text-blue-500'}`}>{price.detail.text}</a>
             </Link>
           </>
         )}
       </p>
 
       <div className="mt-auto relative">
-        {price.ntoes && <span className="text-xs text-gray-400 absolute right-0 -bottom-6">{replaceLinFeedCodoToHtmlBr(price.ntoes)}</span>}
+        {price.ntoes && <span className={`text-xs  absolute right-0 -bottom-6 ${focusType === price.type ? 'text-green-100' : 'text-gray-400'}`}>{replaceLinFeedCodoToHtmlBr(price.ntoes)}</span>}
         <Link href={price.submit.href} passHref>
-          <button className="w-full text-base text-center text-white rounded-sm transition duration-150 mt-auto py-2 bg-green-500">{price.submit.text}</button>
+          <button
+            className={`w-full text-base text-center  rounded-sm transition duration-150 mt-auto py-2  ${
+              focusType === price.type ? 'text-green-500 bg-white hover:bg-yellow-500 hover:text-white' : 'bg-green-500 text-white'
+            }`}
+          >
+            {price.submit.text}
+          </button>
         </Link>
       </div>
 
-      {professitionalPlan.includes(price.type) && (
+      {ProfessitionalPlan.includes(price.type) && (
         <div className="absolute -top-10 left-0 text-xs flex">
           <div className={`${styles.badge} ${styles.gold} relative`}>
             <div className={styles.circle}>

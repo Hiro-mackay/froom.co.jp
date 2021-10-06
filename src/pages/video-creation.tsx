@@ -3,17 +3,19 @@ import Link from 'next/link';
 import FroomSVG from '../components/svgs/froom';
 import styles from '../styles/header.module.css';
 import Footer from '../components/Footer';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { VideoServicePlanQuestion, VideoServicePlanRecommend } from '../components/VideoService';
 import { PriceBox } from '../components/VideoService/Price';
-import { PricePlansGroupType } from '../components/VideoService/Price/prices';
+import { PricePlansGroupType, PricePlansNameType } from '../components/VideoService/Price/prices';
 import servideStyles from '../styles/videoservice.module.css';
 import NextImg from 'next/image';
+import { ProfessitionalPlan } from '../components/VideoService/PlanRecommend/plans';
 
 const Page = () => {
   const [recommendPlanIndex, setRecommendPlanIndex] = useState<number>();
   const [recommendPlanLoading, setRecommendPlanLoading] = useState(false);
   const [showPriceGroup, setShowPriceGroup] = useState<PricePlansGroupType>('basic');
+  const [focusPrice, setFocusPrice] = useState<PricePlansNameType>();
 
   const setRecommendPlanSeeked = useCallback((plan: number) => {
     setRecommendPlanLoading(true);
@@ -40,6 +42,14 @@ const Page = () => {
   const onReset = useCallback(() => {
     setRecommendPlanIndex(undefined);
   }, []);
+
+  useEffect(() => {
+    if (ProfessitionalPlan.includes(focusPrice)) {
+      setShowPriceGroup('professional');
+    } else {
+      setShowPriceGroup('basic');
+    }
+  }, [focusPrice]);
 
   return (
     <div className="relative h-full overflow-hidden">
@@ -84,7 +94,7 @@ const Page = () => {
             </div>
           </div>
           <div className={servideStyles['mv-item-img']}>
-            <NextImg className="w-full" src="/images/video_creation/video-creation-mv-item.png" width={1000} height={636} />
+            <NextImg priority={true} className="w-full" src="/images/video_creation/video-creation-mv-item.svg" width={2018} height={1284} />
           </div>
         </div>
       </section>
@@ -101,7 +111,7 @@ const Page = () => {
 
         <div className="flex flex-col md:flex-row items-center space-y-10 md:space-x-10 lg:space-x-24">
           <div className="flex-grow">
-            <NextImg className="w-full" src="/images/video_creation/service-1.png" width={720} height={720} />
+            <NextImg className="w-full" src="/images/video_creation/service-1.svg" width={720} height={720} />
           </div>
           <div className="flex-grow-0">
             <svg className="text-green-500 w-16 md:w-24 transform rotate-90	md:rotate-0" viewBox="0 0 139 143" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +120,7 @@ const Page = () => {
             </svg>
           </div>
           <div className="flex-grow">
-            <NextImg className="w-full" src="/images/video_creation/service-2.png" width={720} height={720} />
+            <NextImg className="w-full" src="/images/video_creation/service-2.svg" width={720} height={720} />
           </div>
         </div>
       </section>
@@ -128,7 +138,7 @@ const Page = () => {
           {recommendPlanIndex === undefined && <VideoServicePlanQuestion selectedPlan={selectedRecommendPlan} loading={recommendPlanLoading} />}
         </div>
 
-        {recommendPlanIndex !== undefined && <VideoServicePlanRecommend planIndex={recommendPlanIndex} onReset={onReset} />}
+        {recommendPlanIndex !== undefined && <VideoServicePlanRecommend planIndex={recommendPlanIndex} onReset={onReset} setFocusPrice={setFocusPrice} />}
       </section>
 
       <section className="container mx-auto relative py-20 md:py-28 px-5 font-bold">
@@ -284,7 +294,7 @@ const Page = () => {
           </button>
         </div>
 
-        <PriceBox group={showPriceGroup} />
+        <PriceBox group={showPriceGroup} focusType={focusPrice} />
       </section>
 
       <section className="py-20 md:py-28 px-5 font-bold  text-white text-center" style={{ background: 'linear-gradient(90deg, rgba(28,104,182,1) 0%, rgba(16,185,129,1) 100%)' }}>

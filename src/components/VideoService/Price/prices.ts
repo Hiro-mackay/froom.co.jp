@@ -1,4 +1,6 @@
-export type PricePlansNameType = 'AllInclusivePlan' | 'ProfessionalTrainingPlan' | 'ProfessionalToolImplementationPlan' | 'TrainingPlan' | 'ToolImplementationPlan';
+import { PlanNameType } from '../PlanRecommend/plans';
+
+export type PricePlansNameType = PlanNameType;
 export type PricePlansGroupType = 'professional' | 'basic';
 export type PricePlanType = {
   title: string;

@@ -1,14 +1,15 @@
 import { useEffect, useMemo } from 'react';
 import { PriceCard } from './PriceCard';
-import { PricePlansGroupType, PricePlanType } from './prices';
+import { PricePlansGroupType, PricePlansNameType, PricePlanType } from './prices';
 
 export type PropsType = {
   position: number;
   prices: PricePlanType[];
   group: PricePlansGroupType;
+  focusType: PricePlansNameType;
 };
 
-export const PriceContainer = ({ position, prices, group }: PropsType) => {
+export const PriceContainer = ({ position, prices, group, focusType }: PropsType) => {
   const cardLength = useMemo(() => prices.length, [prices]);
 
   return (
@@ -19,7 +20,7 @@ export const PriceContainer = ({ position, prices, group }: PropsType) => {
       style={{ transform: `translateX(${position}%)` }}
     >
       {prices.map((price) => {
-        return <PriceCard key={price.title} price={price} group={group} />;
+        return <PriceCard key={price.title} price={price} group={group} focusType={focusType} />;
       })}
     </div>
   );
