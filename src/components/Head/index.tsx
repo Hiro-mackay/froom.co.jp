@@ -10,7 +10,7 @@ export const Head = ({ titlePre, description = '' }) => {
     <NextHead>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta charSet="utf-8" />
-      <title>{titlePre === 'Home' ? 'Make Make Learn Interesting' : `${titlePre}`} | Froom Inc.</title>
+      <title>{titlePre === 'Home' ? 'Make Learn Interesting' : `${titlePre}`} | Froom Inc.</title>
       <link rel="icon" href="/images/favicon.ico" />
       <meta name="description" content={description || '株式会社Froomは、「Make Learn Interesting」をミッションに、教育活動のOMO（Online Merges with Offline）を実現する企業です。'} />
       <meta name="google-site-verification" content="dy4zVD5RdchspJO3UPCW2FLC3P7TxqXB1OVtV6xKAAA" />
