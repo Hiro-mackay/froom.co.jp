@@ -20,7 +20,7 @@ const Page = () => {
         <div className="pl-4 pt-32">
           <h2 className="text-4xl lg:text-5xl pb-20 tracking-wider">Team</h2>
           <TeamProfile
-            image="/images/mizumoto-ridai.jpg"
+            image="/images/mizumoto-ridai-profile.png"
             name="水元 陸大 | Mizumoto Ridai"
             role="Founder, 代表取締役CEO"
             twitter="https://twitter.com/Ridai990215"
@@ -37,7 +37,7 @@ const Page = () => {
           </TeamProfile>
           <div className="pt-32">
             <TeamProfile
-              image="/images/isogawa-hiroki.jpg"
+              image="/images/isogawa-hiroki-profile.jpg"
               name="五十川 寛基 | Isogawa Hiroki"
               role="Co-Founder, 取締役CTO"
               twitter="https://twitter.com/mackay_1503"
@@ -45,6 +45,17 @@ const Page = () => {
             >
               <p>
                 高校時代からプログラミングを学び、2018年に大学に在籍しながらフリーランスエンジニアとして独立。フロントエンド開発を中心に、バックエンド開発・デザイン・UX設計など多くの経験を積む。その後、ベンチャーでのインターンを経て、代表の水元と株式会社Froomを創業。技術担当として、Froomの開発全般を担う。SNSでは「マッケイ」として活動している。
+              </p>
+            </TeamProfile>
+          </div>
+          <div className="pt-32">
+            <TeamProfile image="/images/fujishiro-hiroki-profile.png" name="藤城弘樹 | Fujishiro Hiroki">
+              <p>
+                名古屋大学経済学部経済学科4年
+                <br />
+                長期に渡り、インドで学生向けのインターンシップの運営や社内システムの開発に携わる。 同年、学生500人の中から年間MVPを受賞。 帰国後は読書に邁進し、1年かけて300冊近くの本を読み漁る。
+                <br />
+                読書生活を終えた後、IT企業で半年間のインターンを経験を経て、Froomに加入。
               </p>
             </TeamProfile>
           </div>
