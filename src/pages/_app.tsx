@@ -1,6 +1,5 @@
 import '../styles/tailwind.compiled.css';
 import '../styles/base.css';
-import 'katex/dist/katex.css';
 import { useRouter } from 'next/router';
 import { GA_TRACKING_ID, pageview } from '../lib/gtag';
 import { useEffect } from 'react';

@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getBlogLink, getDateStr, postIsPublished } from '../../lib/blog-helpers';
-import blogStyles from '../../styles/blog.module.css';
-import { BaseObject } from '../../lib/notion/types/BaseObject';
+import { getBlogLink, getDateStr } from '../../lib/blog-helpers';
 import { DatabaseResponseResult } from '../../lib/notion/types/DatabaseResult';
 import { NewsProperties } from '../../lib/notion/types';
 

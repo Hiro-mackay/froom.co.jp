@@ -1,8 +1,5 @@
-import Link from 'next/link';
 import { Head } from '../../components/Head';
 import { ArticleListItem } from '../../components/ArticleListItem';
-import blogStyles from '../../styles/blog.module.css';
-import { postIsPublished } from '../../lib/blog-helpers';
 import { MainVisual } from '../../components/MainVisual';
 import { Corporate } from '../../layouts/corporate';
 import { databaseId, NewsProperties, NewsResults } from '../../lib/notion/types';
@@ -18,7 +15,7 @@ export const getStaticProps = async (): Promise<GetStaticPropsResult<PageProps>>
     props: {
       posts,
     },
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 };
 
@@ -29,7 +26,7 @@ const Page = ({ posts }: PageProps) => {
       <MainVisual title="NEWS" />
       <section className="container mx-auto py-24 px-8 md:px-44">
         <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
-          {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
+          {posts.length === 0 && <p className="py-8">ニュースがまだありません</p>}
           {posts.map((post) => {
             return (
               post && (

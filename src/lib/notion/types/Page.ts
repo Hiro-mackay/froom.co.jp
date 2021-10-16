@@ -1,5 +1,7 @@
+import { PageParent } from '.';
 import { BaseObject, TitleProperties, RichTextProperties } from './BaseObject';
 
-export type Page = BaseObject & {
+export interface Page extends BaseObject {
   object: 'page';
-};
+  parent: PageParent;
+}

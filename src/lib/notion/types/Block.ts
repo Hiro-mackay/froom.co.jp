@@ -1,151 +1,160 @@
-import { Equation, Mention, RichText } from './BaseObject';
+import { EquationObject, MentionObject, TextObject } from '.';
 
-type BlockObject =
-  | ParagraphBlock
-  | HeadingOneBlocks
-  | HeadingTwoBlocks
-  | HeadingThreeBlocks
-  | CalloutBlocks
-  | QuoteBlock
-  | BulletedListItemBlocks
-  | NumberedListItemBlocks
-  | ToDoBlocks
-  | ToggleBlocks
-  | CodeBlocks
-  | ChildPageBlocks
-  | ChildDatabaseBlocks
-  | EmbedBlocks
-  | ImageBlocks
-  | VideoBlocks
-  | FileBlocks
-  | PDFBlocks
-  | BookmarkBlocks
-  | EquationBlocks
-  | DividerBlocks
-  | TableOfContentsBlocks;
+export interface BaseBlock {
+  object: 'block';
+  id: string;
+  type: BlockType;
+  created_time: string;
+  last_edited_time: string;
+  archived: boolean;
+  has_children: boolean;
+}
 
-type NestedBlock = {
-  text: RichTextItem;
-  children?: BlockObject;
-};
-
-export type ParagraphBlock = { paragraph: NestedBlock; type: 'paragraph' };
-
-export type HeadingOneBlocks = {
-  heading_1: { text: RichTextItem };
-  type: 'heading_1';
-};
-
-export type HeadingTwoBlocks = {
-  heading_2: { text: RichTextItem };
-  type: 'heading_2';
-};
-
-export type HeadingThreeBlocks = {
-  heading_3: { text: RichTextItem };
-  type: 'heading_3';
-};
-
-export type CalloutBlocks = NestedBlock & {
-  icon?: Icon;
-};
-
-export type QuoteBlock = {
+export interface ParagraphBlock extends BaseBlock {
   paragraph: NestedBlock;
   type: 'paragraph';
-};
+}
 
-export type BulletedListItemBlocks = {
+export interface HeadingOneBlock extends BaseBlock {
+  heading_1: { text: RichTextItem };
+  type: 'heading_1';
+}
+
+export interface HeadingTwoBlock extends BaseBlock {
+  heading_2: { text: RichTextItem };
+  type: 'heading_2';
+}
+
+export interface HeadingThreeBlock extends BaseBlock {
+  heading_3: { text: RichTextItem };
+  type: 'heading_3';
+}
+
+export interface CalloutBlock extends BaseBlock {
+  callout: {
+    icon: Icon;
+    text: RichTextItem;
+  };
+  type: 'callout';
+}
+
+export interface QuoteBlock extends BaseBlock {
+  quote: { text: RichTextItem };
+  type: 'quote';
+}
+
+export interface BulletedListItemBlock extends BaseBlock {
   bulleted_list_item: NestedBlock;
   type: 'bulleted_list_item';
-};
+}
 
-export type NumberedListItemBlocks = {
+export interface NumberedListItemBlock extends BaseBlock {
   numbered_list_item: NestedBlock;
   type: 'numbered_list_item';
-};
+}
 
-export type ToDoBlocks = {
+export interface ToDoBlock extends BaseBlock {
   to_do: NestedBlock & { checked: boolean };
   type: 'to_do';
-};
+}
 
-export type ToggleBlocks = {
+export interface ToggleBlock extends BaseBlock {
   toggle: NestedBlock;
   type: 'toggle';
-};
+}
 
-export type CodeBlocks = {
-  code: { text: string; language: CodeLanguage };
-  type?: 'code';
-};
+export interface CodeBlock extends BaseBlock {
+  code: { text: RichTextItem; language: CodeLanguage };
+  type: 'code';
+}
 
-export type ChildPageBlocks = {
+export interface ChildPageBlock extends BaseBlock {
   child_page: {
     title: 'Lacinato kale';
   };
   type: 'child_page';
-};
+}
 
-export type ChildDatabaseBlocks = {
+export interface ChildDatabaseBlock extends BaseBlock {
   type: 'child_database';
   child_database: { title: string };
-};
+}
 
-export type EmbedBlocks = {
+export interface EmbedBlock extends BaseBlock {
   embed: {
     url: string;
   } & Caption;
   type: 'embed';
-};
+}
 
-export type ImageBlocks = {
-  image: Caption & External;
+export interface ImageBlock extends BaseBlock {
+  image: External | FileObject;
   type: 'image';
-};
+}
 
-export type VideoBlocks = {
-  video: Caption & External;
+export interface VideoBlock extends BaseBlock {
+  video: FileObject | External;
   type: 'video';
-};
+}
 
-export type FileBlocks = {
-  file: Caption & External;
+export interface FileBlock extends BaseBlock {
+  file: FileObject;
   type: 'file';
-};
+}
 
-export type PDFBlocks = {
-  pdf: Caption & External;
+export interface PDFBlock extends BaseBlock {
+  pdf: FileObject;
   type: 'pdf';
-};
+}
 
-export type BookmarkBlocks = {
-  bookmark: Caption & External;
+export interface BookmarkBlock extends BaseBlock {
+  bookmark: Caption & { url: string };
   type: 'bookmark';
-};
+}
 
-export type EquationBlocks = {
+export interface EquationBlock extends BaseBlock {
   equation: { expression: string };
   type: 'equation';
-};
+}
 
-export type DividerBlocks = { divider: {}; type: 'divider' };
+export interface DividerBlock extends BaseBlock {
+  divider: {};
+  type: 'divider';
+}
 
-export type TableOfContentsBlocks = { table_of_contents: {}; type: 'table_of_contents' };
+export interface TableOfContentsBlock extends BaseBlock {
+  table_of_contents: {};
+  type: 'table_of_contents';
+}
 
-type RichTextItem = Array<RichText | Mention | Equation>;
+export interface NestedBlock extends BaseBlock {
+  text: RichTextItem;
+  children: Array<BaseBlock>;
+}
 
-type Icon = {
+export type RichTextItem = Array<TextObject | MentionObject | EquationObject>;
+
+export interface Icon {
   type: 'emoji';
-  emoji: string;
-};
+  emoji?: string | null;
+}
 
-type External = {
+export interface External extends Caption {
   type: 'external';
   external: { url: string };
-} & Caption;
+}
 
-type Caption = { caption?: RichTextItem };
+export interface FileObject extends Caption {
+  type: 'file';
+  file: {
+    expiry_time: string;
+    url: string;
+  };
+}
+
+export interface Caption {
+  caption?: RichTextItem;
+}
 
 export type CodeLanguage =
   | 'abap'
@@ -220,3 +229,27 @@ export type CodeLanguage =
   | 'xml'
   | 'yaml'
   | 'java/c/c++/c#';
+
+export type BlockType =
+  | 'paragraph'
+  | 'heading_1'
+  | 'heading_2'
+  | 'heading_3'
+  | 'callout'
+  | 'quote'
+  | 'bulleted_list_item'
+  | 'numbered_list_item'
+  | 'to_do'
+  | 'toggle'
+  | 'code'
+  | 'child_page'
+  | 'child_database'
+  | 'embed'
+  | 'image'
+  | 'video'
+  | 'file'
+  | 'pdf'
+  | 'bookmark'
+  | 'equation'
+  | 'divider'
+  | 'table_of_contents';

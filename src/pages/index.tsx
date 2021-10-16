@@ -1,8 +1,6 @@
 import { Button, CVButton } from '../components/Button';
 import { Head } from '../components/Head';
 import TopStyles from '../styles/home.module.css';
-import { postIsPublished } from '../lib/blog-helpers';
-import blogStyles from '../styles/blog.module.css';
 import { ArticleListItem } from '../components/ArticleListItem';
 import FroomSVG from '../components/svgs/froom';
 import { Corporate } from '../layouts/corporate';
@@ -16,13 +14,13 @@ import { NewsProperties, NewsResults } from '../lib/notion/types';
 type PageProps = { posts: NewsResults };
 
 export const getStaticProps = async (): Promise<GetStaticPropsResult<PageProps>> => {
-  const posts = await getDatabase<NewsProperties>(databaseId);
+  const posts = await getDatabase<NewsProperties>(databaseId, { page_size: 4 });
 
   return {
     props: {
       posts,
     },
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 };
 
@@ -135,7 +133,7 @@ const Page = ({ posts }: PageProps) => {
           <div className="px-8 pt-20 pb-16 bg-white shadow-xl md:px-16 lg:pt-32 lg:pb-24 2xl:px-36">
             <h2 className="text-2xl lg:text-4xl lg:pb-8 tracking-wide">News</h2>
             <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
-              {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
+              {posts.length === 0 && <p className="py-8">ニュースがまだありません</p>}
               {posts.map((post) => {
                 return (
                   post && (
@@ -145,6 +143,16 @@ const Page = ({ posts }: PageProps) => {
                   )
                 );
               })}
+
+              {posts.length !== 0 && (
+                <p className="pt-20 text-center">
+                  <Link href="/news" passHref>
+                    <a>
+                      <CVButton>More</CVButton>
+                    </a>
+                  </Link>
+                </p>
+              )}
             </div>
           </div>
         </section>

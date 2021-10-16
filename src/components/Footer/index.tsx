@@ -1,4 +1,3 @@
-import ExtLink from '../ext-link';
 import { GlobalNavigationItems } from '../../constants/GlobalNavigationItems';
 import { GlobalNavItem } from '../GlobalNavItem';
 const Page = () => (

@@ -1,31 +1,19 @@
-export type BaseObject = {
+import { External, Icon } from '.';
+
+export interface BaseObject {
   object: string;
   id: string;
   created_time: string;
   last_edited_time: string;
+  archived: boolean;
+  icon: Icon;
+  cover: External;
+  properties: Properties;
   parent: {
-    type: string;
-    page_id: string;
-  };
-  icon: {
-    type: string;
-    emoji: string;
-  };
-  cover: {
-    type: string;
-    external: {
-      url: string;
-    };
+    type: 'page_id' | 'workspace';
   };
   url: string;
-  title: Array<RichText>;
-  properties: Properties;
-};
-
-export type TextObject = {
-  content: string;
-  link: { url: TextRequest } | null;
-};
+}
 
 export type RichTextColor =
   | 'default'
@@ -48,24 +36,31 @@ export type RichTextColor =
   | 'pink_background'
   | 'red_background';
 
-export type TextAnnotations = {
-  bold: boolean;
-  italic: boolean;
-  strikethrough: boolean;
-  underline: boolean;
-  code: boolean;
-  color: RichTextColor;
-};
+export interface TextAnnotations {
+  bold?: boolean;
+  italic?: boolean;
+  strikethrough?: boolean;
+  underline?: boolean;
+  code?: boolean;
+  color?: RichTextColor;
+}
 
-export type RichText = {
-  type: 'text';
-  text: TextObject;
-  annotations: TextAnnotations;
+export interface RichTextObject {
+  type: 'text' | 'mention' | 'equation';
+  annotations?: TextAnnotations;
   plain_text: string;
-  href: string | null;
-};
+  href?: string | null;
+}
 
-export type Mention = {
+export interface TextObject extends RichTextObject {
+  type: 'text';
+  text: {
+    content: string;
+    link?: { url: TextRequest } | null;
+  };
+}
+
+export interface MentionObject extends RichTextObject {
   type: 'mention';
   mention:
     | {
@@ -119,26 +114,26 @@ export type Mention = {
   annotations: TextAnnotations;
   plain_text: string;
   href: string | null;
-};
+}
 
-export type Equation = {
+export interface EquationObject extends RichTextObject {
   type: 'equation';
   equation: { expression: TextRequest };
   annotations: TextAnnotations;
   plain_text: string;
   href: string | null;
-};
+}
 
-export type Person = {
+export interface Person {
   type: 'person';
   person: { email: string };
   name: string | null;
   avatar_url: string | null;
   id: IdRequest;
   object: 'user';
-};
+}
 
-export type Bot = {
+export interface Bot {
   type: 'bot';
   bot:
     | Record<string, never>
@@ -163,7 +158,7 @@ export type Bot = {
   avatar_url: string | null;
   id: IdRequest;
   object: 'user';
-};
+}
 
 export type TextRequest = string;
 export type IdRequest = string;
@@ -191,27 +186,31 @@ export type Properties = Record<
   | LastEditedByProperties
 >;
 
-export type TitleProperties = {
+export interface TitleProperties {
   type: 'title';
-  title: Array<RichText | Mention | Equation>;
+  title: Array<TextObject | MentionObject | EquationObject>;
   id: string;
-};
+}
 
-export type RichTextProperties = {
+export interface RichTextProperties {
   type: 'rich_text';
-  rich_text: Array<RichText | Mention | Equation>;
+  rich_text: Array<TextObject | MentionObject | EquationObject>;
   id: string;
-};
+}
 
-export type NumberProperties = { type: 'number'; number: number; id: string };
+export interface NumberProperties {
+  type: 'number';
+  number: number;
+  id: string;
+}
 
-export type UrlProperties = {
+export interface UrlProperties {
   type: 'url';
   url: string;
   id: string;
-};
+}
 
-export type SelectProperties = {
+export interface SelectProperties {
   type: 'select';
   select: {
     id: StringRequest;
@@ -219,9 +218,9 @@ export type SelectProperties = {
     color: 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red';
   };
   id: string;
-};
+}
 
-export type MultiSelectProperties = {
+export interface MultiSelectProperties {
   type: 'multi_select';
   multi_select: Array<{
     id: StringRequest;
@@ -229,21 +228,33 @@ export type MultiSelectProperties = {
     color: 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red';
   }>;
   id: string;
-};
+}
 
-export type PeopleProperties = {
+export interface PeopleProperties {
   type: 'people';
   people: Array<{ id: IdRequest; object: 'user' } | Person | Bot>;
   id: string;
-};
+}
 
-export type EmailProperties = { type: 'email'; email: string; id: string };
+export interface EmailProperties {
+  type: 'email';
+  email: string;
+  id: string;
+}
 
-export type PhoneNumberProperties = { type: 'phone_number'; phone_number: string; id: string };
+export interface PhoneNumberProperties {
+  type: 'phone_number';
+  phone_number: string;
+  id: string;
+}
 
-export type DateProperties = { type: 'date'; date: { start: string; end: string | null }; id: string };
+export interface DateProperties {
+  type: 'date';
+  date: { start: string; end: string | null };
+  id: string;
+}
 
-export type FilesProperties = {
+export interface FilesProperties {
   type: 'files';
   files: Array<
     | {
@@ -254,11 +265,15 @@ export type FilesProperties = {
     | { external: { url: string }; name: string; type?: 'external' }
   >;
   id: string;
-};
+}
 
-export type CheckboxProperties = { type: 'checkbox'; checkbox: boolean; id: string };
+export interface CheckboxProperties {
+  type: 'checkbox';
+  checkbox: boolean;
+  id: string;
+}
 
-export type FormulaProperties = {
+export interface FormulaProperties {
   type: 'formula';
   formula:
     | { type: 'string'; string: string | null }
@@ -269,25 +284,47 @@ export type FormulaProperties = {
     | { type: 'number'; number: number | null }
     | { type: 'boolean'; boolean: boolean | null };
   id: string;
-};
-export type RelationProperties = { type: 'relation'; relation: Array<{ id: string }>; id: string };
+}
+export interface RelationProperties {
+  type: 'relation';
+  relation: Array<{ id: string }>;
+  id: string;
+}
 
-export type RollupProperties = {
+export interface RollupProperties {
   type: 'rollup';
   rollup: any;
   id: string;
-};
+}
 
-export type CreatedDateProperties = { type: 'created_time'; created_time: string; id: string };
+export interface CreatedDateProperties {
+  type: 'created_time';
+  created_time: string;
+  id: string;
+}
 
-export type CreatedByProperties = {
+export interface CreatedByProperties {
   type: 'created_by';
   created_by: { id: IdRequest; object: 'user' } | Person | Bot;
   id: string;
-};
-export type LastEditedTimeProperties = { type: 'last_edited_time'; last_edited_time: string; id: string };
-export type LastEditedByProperties = {
+}
+export interface LastEditedTimeProperties {
+  type: 'last_edited_time';
+  last_edited_time: string;
+  id: string;
+}
+export interface LastEditedByProperties {
   type: 'last_edited_by';
   last_edited_by: { id: IdRequest; object: 'user' } | Person | Bot;
   id: string;
-};
+}
+
+export interface PageParent {
+  type: 'page_id';
+  page_id: string;
+}
+
+export interface WorkspaceParent {
+  type: 'workspace';
+  workspace: true;
+}
