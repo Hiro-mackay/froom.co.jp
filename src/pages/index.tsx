@@ -9,11 +9,14 @@ import { Corporate } from '../layouts/corporate';
 import Link from 'next/link';
 import NextImg from 'next/image';
 import { getDatabase } from '../lib/notion';
-import { databaseId, DatabaseResponseResult } from '../lib/notion/types/DatabaseResult';
-import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { databaseId } from '../lib/notion/types/DatabaseResult';
+import { GetStaticPropsResult } from 'next';
+import { NewsProperties, NewsResults } from '../lib/notion/types';
 
-export const getStaticProps = async () => {
-  const posts = await getDatabase(databaseId);
+type PageProps = { posts: NewsResults };
+
+export const getStaticProps = async (): Promise<GetStaticPropsResult<PageProps>> => {
+  const posts = await getDatabase<NewsProperties>(databaseId);
 
   return {
     props: {
@@ -23,7 +26,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Page = ({ posts }: { posts: DatabaseResponseResult }) => {
+const Page = ({ posts }: PageProps) => {
   console.log(posts);
   return (
     <Corporate>
@@ -132,12 +135,16 @@ const Page = ({ posts }: { posts: DatabaseResponseResult }) => {
           <div className="px-8 pt-20 pb-16 bg-white shadow-xl md:px-16 lg:pt-32 lg:pb-24 2xl:px-36">
             <h2 className="text-2xl lg:text-4xl lg:pb-8 tracking-wide">News</h2>
             <div className="grid grid-cols-1 divide-y-2 divide-gray-300">
-              {/* {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
-              {posts.map((post) => (
-                <div key={post.id}>
-                  <h3>{post.properties.Name.title[0].text.content}</h3>
-                </div>
-              ))} */}
+              {posts.length === 0 && <p className={blogStyles.noPosts}>ニュースがまだありません</p>}
+              {posts.map((post) => {
+                return (
+                  post && (
+                    <div className="px-3 py-8 border-b border-gray-300" key={post.id}>
+                      <ArticleListItem {...post}></ArticleListItem>
+                    </div>
+                  )
+                );
+              })}
             </div>
           </div>
         </section>

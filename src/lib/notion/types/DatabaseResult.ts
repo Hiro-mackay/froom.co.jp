@@ -1,9 +1,9 @@
-import { BaseObject, TitleProperties } from './BaseObject';
+import { BaseObject, TitleProperties, DateProperties, Properties } from './BaseObject';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 export const notionToken = process.env.NOTION_TOKEN;
 
-export type DatabaseResponseResult = BaseObject & {
+export type DatabaseResponseResult<T extends Properties = Properties> = BaseObject & {
   object: 'page';
-  properties: Record<'Name', TitleProperties>;
+  properties: T;
 };

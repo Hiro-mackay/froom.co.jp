@@ -19,27 +19,7 @@ export type BaseObject = {
   };
   url: string;
   title: Array<RichText>;
-  properties: Record<
-    string,
-    | TitleProperties
-    | RichTextProperties
-    | NumberProperties
-    | UrlProperties
-    | SelectProperties
-    | MultiSelectProperties
-    | PeopleProperties
-    | EmailProperties
-    | PhoneNumberProperties
-    | DateProperties
-    | FilesProperties
-    | CheckboxProperties
-    | FormulaProperties
-    | RollupProperties
-    | CreatedDateProperties
-    | CreatedByProperties
-    | LastEditedTimeProperties
-    | LastEditedByProperties
-  >;
+  properties: Properties;
 };
 
 export type TextObject = {
@@ -188,6 +168,28 @@ export type Bot = {
 export type TextRequest = string;
 export type IdRequest = string;
 export type StringRequest = string;
+
+export type Properties = Record<
+  string,
+  | TitleProperties
+  | RichTextProperties
+  | NumberProperties
+  | UrlProperties
+  | SelectProperties
+  | MultiSelectProperties
+  | PeopleProperties
+  | EmailProperties
+  | PhoneNumberProperties
+  | DateProperties
+  | FilesProperties
+  | CheckboxProperties
+  | FormulaProperties
+  | RollupProperties
+  | CreatedDateProperties
+  | CreatedByProperties
+  | LastEditedTimeProperties
+  | LastEditedByProperties
+>;
 
 export type TitleProperties = {
   type: 'title';
